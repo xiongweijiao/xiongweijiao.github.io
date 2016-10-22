@@ -9,9 +9,11 @@
     
     <meta name="author" content="xiongwei jiao">
     
-    <meta name="description" content="文中部分内容摘自各大网站、论坛，主要是为了自己学习和方便查找，也防止部分网站被和谐，找不到资源。现将主要原文链接给大家参考：[参考链接](http://blog.sina.com.cn/s/blog_ea55cba50102vo0o.html)
+    <meta name="description" content="文中部分内容摘自各大网站、论坛，主要是为了自己学习和方便查找，也防止部分网站被和谐，找不到资源。现将主要原文链接给大家参考：参考链接
 Shadowsocks特点：
-省电，在电量查看里几乎看">
+省电，在电量查看里几乎看不到它的身影；
+支持开机自启动，且断网无影响，无需手动重连，方便网络不稳定或者3G&amp;amp;Wi-Fi频繁切；
+">
     
     
     
@@ -88,98 +90,90 @@ Shadowsocks特点：
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks特点："><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS推荐与支付"><span class="toc-number">2.</span> <span class="toc-text">VPS推荐与支付:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS深入说明与选择："><span class="toc-number">3.</span> <span class="toc-text">VPS深入说明与选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS节点的选择"><span class="toc-number">4.</span> <span class="toc-text">VPS节点的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS的创建与使用"><span class="toc-number">5.</span> <span class="toc-text">VPS的创建与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-linux-vbird-org-linux-basic-0310vi-php（图文详解）"><span class="toc-number">6.</span> <span class="toc-text">http://linux.vbird.org/linux_basic/0310vi.php（图文详解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。"><span class="toc-number">7.</span> <span class="toc-text">小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程-1、转发-公开-，以帮助更多的人。谢谢！"><span class="toc-number">8.</span> <span class="toc-text">别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程+1、转发(公开)，以帮助更多的人。谢谢！﻿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程-1、转发-公开-，以帮助更多的人哦。谢谢！"><span class="toc-number">9.</span> <span class="toc-text">看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程+1、转发(公开)，以帮助更多的人哦。谢谢！﻿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#③重启shadowsocks服务端：service-supervisord-restart"><span class="toc-number">10.</span> <span class="toc-text">③重启shadowsocks服务端：service supervisord restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。"><span class="toc-number">11.</span> <span class="toc-text">4.如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks特点："><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS推荐与支付"><span class="toc-number">2.</span> <span class="toc-text">VPS推荐与支付:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS深入说明与选择："><span class="toc-number">3.</span> <span class="toc-text">VPS深入说明与选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS节点的选择"><span class="toc-number">4.</span> <span class="toc-text">VPS节点的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS的创建与使用"><span class="toc-number">5.</span> <span class="toc-text">VPS的创建与使用</span></a></li></ol>
 		</div>
 		
-		<pre><code>文中部分内容摘自各大网站、论坛，主要是为了自己学习和方便查找，也防止部分网站被和谐，找不到资源。现将主要原文链接给大家参考：[参考链接](http://blog.sina.com.cn/s/blog_ea55cba50102vo0o.html)
-</code></pre><h2 id="Shadowsocks特点："><a href="#Shadowsocks特点：" class="headerlink" title="Shadowsocks特点："></a>Shadowsocks特点：</h2><ol>
+		<p>文中部分内容摘自各大网站、论坛，主要是为了自己学习和方便查找，也防止部分网站被和谐，找不到资源。现将主要原文链接给大家参考：<a href="http://blog.sina.com.cn/s/blog_ea55cba50102vo0o.html" target="_blank" rel="external">参考链接</a></p>
+<h2 id="Shadowsocks特点："><a href="#Shadowsocks特点：" class="headerlink" title="Shadowsocks特点："></a>Shadowsocks特点：</h2><ol>
 <li>省电，在电量查看里几乎看不到它的身影；</li>
 <li>支持开机自启动，且断网无影响，无需手动重连，方便网络不稳定或者3G&amp;Wi-Fi频繁切；</li>
 <li>可使用自己的服务器，安全和速度的保证；</li>
 <li>支持区分国内外流量，传统VPN在翻出墙外后访问国内站点会变慢；</li>
-<li><p>可对应用设置单独代理，5.0之后的系统无需root。</p>
-<p><strong>个人感受：</strong>随机启动24小时后台运行，占内存10MB以内，基本不怎么耗电，跟人直接置身墙外使用手机的感受差不多。</p>
-</li>
+<li>可对应用设置单独代理，5.0之后的系统无需root。</li>
 </ol>
-<h2 id="VPS推荐与支付"><a href="#VPS推荐与支付" class="headerlink" title="VPS推荐与支付:"></a>VPS推荐与支付:</h2><pre><code>Shadowsocks的正常使用需要服务端，其实所有的翻墙方式都需要服务端，搭建服务端需要你拥有一个属于自己的VPS。下面是我自己精挑细选出来的三家VPS供应商，如果你坚持认为我是在给这三家VPS打广告，你就不用往下看了。这三家我都在用，感觉不错，当然你也可以选择其他家的VPS产品。
-
-**DigitalOcean：**
-
-KVM架构    512MB内存  20GB硬盘   1TB流量/月 5美元/月（折合人民币30元/月）
-点击进入 [官网链接](https://www.digitalocean.com/)
-
-**搬瓦工（BandwagonHOST）：**
-OpenVZ架构   1GB内存  20GB硬盘   2TB流量/月 18.99美元/年（折合人民币9.5元/月）此款VPS的年付选项在Billing Cycle的下拉菜单里
-点击进入 [官网链接](https://bandwagonhost.com/)，**提示**进不去的先下载安装chromegae浏览器翻墙进入 [官网地址](https://www.chromegae.net/?)
-
-OpenVZ架构 512MB内存  10GB硬盘   1TB流量/月 11.99美元/年（折合人民币6元/月）
-点击进入 [官网链接](https://bandwagonhost.com/)，**提示**进不去的先下载安装chromegae浏览器翻墙进入 [官网地址](https://www.chromegae.net/?)
-
-OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人民币5元/月）
-点击进入 [官网链接](https://bandwagonhost.com/)，**提示**进不去的先下载安装chromegae浏览器翻墙进入 [官网地址](https://www.chromegae.net/?)
-
-**Linode：**
-点击进入 [官网链接](https://bandwagonhost.com/)，**提示**进不去的先下载安装chromegae浏览器翻墙进入 [官网地址](https://www.linode.com/?)
-</code></pre><h2 id="VPS深入说明与选择："><a href="#VPS深入说明与选择：" class="headerlink" title="VPS深入说明与选择："></a>VPS深入说明与选择：</h2><p>   我简单解释一下三家差价比较大的原因和技术特点：</p>
-<pre><code>OpenVZ为不完全虚拟化技术，每个VPS账户共享母机内核，易受同一母机下其他VPS的影响，几乎不能单独修改内核。Xen和KVM为完全虚拟化技术，各VPS之间互相独立，基本互不影响，而且可以任意修改内核。
-</code></pre><p>这三种架构对我们搭建shadowsocks服务器来讲最直观的区别就是，Xen和KVM可通过系统内核修改来优化服务器，大幅度提升shadowsocks的连接速度，尤其体现在晚高峰的时候。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>个人感受：</strong>随机启动24小时后台运行，占内存10MB以内，基本不怎么耗电，跟人直接置身墙外使用手机的感受差不多。</p>
+<h2 id="VPS推荐与支付"><a href="#VPS推荐与支付" class="headerlink" title="VPS推荐与支付:"></a>VPS推荐与支付:</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Shadowsocks的正常使用需要服务端，其实所有的翻墙方式都需要服务端，搭建服务端需要你拥有一个属于自己的VPS。下面是我自己精挑细选出来的三家VPS供应商，如果你坚持认为我是在给这三家VPS打广告，你就不用往下看了。这三家我都在用，感觉不错，当然你也可以选择其他家的VPS产品。</p>
+<p>   <strong>DigitalOcean：</strong></p>
+<p>   KVM架构    512MB内存  20GB硬盘   1TB流量/月 5美元/月（折合人民币30元/月）<br>   点击进入 <a href="https://www.digitalocean.com/" target="_blank" rel="external">官网链接</a></p>
+<p>   <strong>搬瓦工（BandwagonHOST）：</strong><br>    OpenVZ架构   1GB内存  20GB硬盘   2TB流量/月 18.99美元/年（折合人民币9.5元/月）此款VPS的年付选项在Billing Cycle的下拉菜单里，点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.chromegae.net/?" target="_blank" rel="external">官网地址</a></p>
+<p>   OpenVZ架构 512MB内存  10GB硬盘   1TB流量/月 11.99美元/年（折合人民币6元/月），点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.chromegae.net/?" target="_blank" rel="external">官网地址</a></p>
+<p>   OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人民币5元/月），点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.chromegae.net/?" target="_blank" rel="external">官网地址</a></p>
+<p>   <strong>Linode：</strong>，点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.linode.com/?" target="_blank" rel="external">官网地址</a></p>
+<h2 id="VPS深入说明与选择："><a href="#VPS深入说明与选择：" class="headerlink" title="VPS深入说明与选择："></a>VPS深入说明与选择：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;我简单解释一下三家差价比较大的原因和技术特点：</p>
+<p>OpenVZ为不完全虚拟化技术，每个VPS账户共享母机内核，易受同一母机下其他VPS的影响，几乎不能单独修改内核。Xen和KVM为完全虚拟化技术，各VPS之间互相独立，基本互不影响，而且可以任意修改内核。</p>
+<p>这三种架构对我们搭建shadowsocks服务器来讲最直观的区别就是，Xen和KVM可通过系统内核修改来优化服务器，大幅度提升shadowsocks的连接速度，尤其体现在晚高峰的时候。</p>
 <p>我在同一时间段用100MB的文件简单的在自己的三台VPS上面测试了一下shadowsocks的连接速度：</p>
-<pre><code>搬瓦工（9.99美元/年）的平均下载速度在1.36-3.43Mbps之间（174-439KB/S），也就是说速度表现不是很稳定，速度快的时候也可以看下YouTube 720p，速度慢的时候YouTube 480p还是没有问题的。
-</code></pre><p>DigitalOcean（5美元/月）的平均下载速度稳定维持在3.70Mbps以上（474KB/S），这个速度已经是我本地物理带宽的上限，所以VPS的速度上限未知，基本在大部分时候YouTube 1080p都可以流畅播放，任意时刻YouTube 720p都没问题。</p>
-<pre><code>Linode（10美元/月）的上传下载速度均达到带宽满载，官方给出的数据是“40 Gbit Network In / 125 Mbit Network Out”，由于楼主本地带宽有限，有热心小伙伴分享了他在联通LTE网络环境下的测试结果，数据显示速度可达60M以上(7.83MB/S)，略恐怖，意味着任意时刻YouTube 1080p秒开，只要你的带宽够，一般来说看4K也是没有问题的。Linode除了速度快之外，还有一个杀手锏就是提供日本节点，ping值70ms以内，有超低网络延迟需求的小伙伴可以重点考虑下。
-</code></pre><p><strong>个人建议</strong>，对连接速度和稳定性尤其是网络延迟有极高要求的首选Linode（只有最快，没有更快），有较高要求的推荐DigitalOcean（一分价钱一分货），对于普通用户来讲，搬瓦工就可以（性价比高）</p>
-<h2 id="VPS节点的选择"><a href="#VPS节点的选择" class="headerlink" title="VPS节点的选择"></a>VPS节点的选择</h2><p>搬瓦工各节点测试IP：<br>Los Angeles：   104.194.78.3<br>Florida：       74.121.150.3<br>Phoenix：       198.35.46.2（可在控制面板里切换到这个机房）</p>
-<p>DigitalOcean各节点测试域名：<br>San Francisco： speedtest-sfo1.digitalocean.com<br>新加坡：        speedtest-sgp1.digitalocean.com<br>New York：      speedtest-ny1.digitalocean.com<br>Amsterdam：     speedtest-ams1.digitalocean.com<br>英国伦敦：      speedtest-lon1.digitalocean.com</p>
-<p>Linode各节点测试域名：<br>Tokyo,JP：      speedtest.tokyo.linode.com<br>Fremont,CA：    speedtest.fremont.linode.com<br>Newark,NJ：     speedtest.newark.linode.com<br>Atlanta,GA：    speedtest.atlanta.linode.com<br>Dallas,TX：     speedtest.dallas.linode.com<br>London,UK：     speedtest.london.linode.com</p>
-<p>请在CMD下自行使用“ping IP -t”或“ping 域名 -t”命令来测试不同位置的机房与你的电脑之间的ping值以及丢包率（Ctrl+C退出测试）。</p>
-<p>如果还是不知道该选择哪个节点的小伙伴，搬瓦工一般选用Los Angeles节点居多，DigitalOcean一般选用San Francisco节点居多(都在美国西海岸)，而Linode一般选择“Tokyo,JP”(日本节点)或者“Fremont,CA”(美国西海岸)，由于Linode日本节点ping值很低(70ms左右)、销售火爆，可能会一时无货，如果遇到无货，等一会再试试(我也是刷新了一会就有了)。一开始节点选择的不理想也不要紧，以后还可以方便的切换机房。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>搬瓦工</strong>（9.99美元/年）的平均下载速度在1.36-3.43Mbps之间（174-439KB/S），也就是说速度表现不是很稳定，速度快的时候也可以看下YouTube 720p，速度慢的时候YouTube 480p还是没有问题的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;DigitalOcean（5美元/月）的平均下载速度稳定维持在3.70Mbps以上（474KB/S），这个速度已经是我本地物理带宽的上限，所以VPS的速度上限未知，基本在大部分时候YouTube 1080p都可以流畅播放，任意时刻YouTube 720p都没问题。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Linode</strong>（10美元/月）的上传下载速度均达到带宽满载，官方给出的数据是“40 Gbit Network In / 125 Mbit Network Out”，由于楼主本地带宽有限，有热心小伙伴分享了他在联通LTE网络环境下的测试结果，数据显示速度可达60M以上(7.83MB/S)，略恐怖，意味着任意时刻YouTube 1080p秒开，只要你的带宽够，一般来说看4K也是没有问题的。Linode除了速度快之外，还有一个杀手锏就是提供日本节点，ping值70ms以内，有超低网络延迟需求的小伙伴可以重点考虑下。</p>
+<p><strong>个人建议</strong>，对连接速度和稳定性尤其是网络延迟有极高要求的首选Linode（只有最快，没有更快），有较高要求的推荐DigitalOcean（一分价钱一分货），对于普通用户来讲，搬瓦工就可以（性价比高）</p>
+<h2 id="VPS节点的选择"><a href="#VPS节点的选择" class="headerlink" title="VPS节点的选择"></a>VPS节点的选择</h2><p><strong>搬瓦工各节点测试IP：</strong><br>Los Angeles：   104.194.78.3<br>Florida：       74.121.150.3<br>Phoenix：       198.35.46.2（可在控制面板里切换到这个机房）</p>
+<p><strong>DigitalOcean各节点测试域名：</strong><br>San Francisco： speedtest-sfo1.digitalocean.com<br>新加坡：        speedtest-sgp1.digitalocean.com<br>New York：      speedtest-ny1.digitalocean.com<br>Amsterdam：     speedtest-ams1.digitalocean.com<br>英国伦敦：      speedtest-lon1.digitalocean.com</p>
+<p><strong>Linode各节点测试域名：</strong><br>Tokyo,JP：      speedtest.tokyo.linode.com<br>Fremont,CA：    speedtest.fremont.linode.com<br>Newark,NJ：     speedtest.newark.linode.com<br>Atlanta,GA：    speedtest.atlanta.linode.com<br>Dallas,TX：     speedtest.dallas.linode.com<br>London,UK：     speedtest.london.linode.com</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;请在CMD下自行使用“ping IP -t”或“ping 域名 -t”命令来测试不同位置的机房与你的电脑之间的ping值以及丢包率（Ctrl+C退出测试）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果还是不知道该选择哪个节点的小伙伴，搬瓦工一般选用Los Angeles节点居多，DigitalOcean一般选用San Francisco节点居多(都在美国西海岸)，而Linode一般选择“Tokyo,JP”(日本节点)或者“Fremont,CA”(美国西海岸)，由于Linode日本节点ping值很低(70ms左右)、销售火爆，可能会一时无货，如果遇到无货，等一会再试试(我也是刷新了一会就有了)。一开始节点选择的不理想也不要紧，以后还可以方便的切换机房。</p>
 <p>特别对比：Linode的Fremont,CA节点与DigitalOcean的San Francisco节点相比，同在美国西海岸，ping值和丢包率基本差不多，但Linode的网速明显更快。</p>
-<h2 id="VPS的创建与使用"><a href="#VPS的创建与使用" class="headerlink" title="VPS的创建与使用"></a>VPS的创建与使用</h2><p>   搬瓦工默认系统为Centos 6 x86，保持默认即可；DigitalOcean创建VPS的时候(Create Droplet)选择CentOS 6.5 x64（自作聪明选择CentOS 7的人是没救的）；Linode的详细操作说明见下方。</p>
-<p>针对搬瓦工的专属补充教程：可能由于搬瓦工官方发现很多人都在他家的VPS上面搭建了Shadowsocks，于是机灵的官方在自家的控制面板里集成了一键搭建服务，大大降低了新手搭建难度，实现了傻瓜化的操作。我简述下流程：点击“Services”里的“My Services”，点击“KiwiVM Control Panel”，这时会跳转到一个新页面。将新页面左侧的滚动条拉到底，找到“Shadowsocks Server”字样并点击进入，然后点击“Install Shadowsocks Server”，几秒钟之后显示Completed的字样就代表完成了。这时候点击“Go back”或者直接点击左侧的“Shadowsocks Server”，你会看到出现了一个叫做“Shadowsocks server controls”的东西，上面有默认的加密方式(encryption)、服务器端口(port)以及密码(password)，你可以直接使用默认的，也可以点击旁边的“Change xx”按钮进行修改，最后检查一下Status是不是Running，不是的话就点一下旁边的“Start”。至此，你的Shadowsocks服务端就搭建完成了，你可以直接跳转到本教程后面的客户端配置部分了(搬瓦工也自带了简易的客户端配置说明“What’s next?”)。注意，此方法为搬瓦工专属，仅供懒人和纯新手，你如果想在更好更快的其他家的VPS上面搭建Shadowsocks服务，你还是需要老老实实的学习下面的手工搭建方法，而且我强烈建议你如果有能力也有精力，最好掌握搭建的原理，对于你以后维护自己的VPS或者再学习搭建其他的翻墙服务都大有脾益。</p>
+<h2 id="VPS的创建与使用"><a href="#VPS的创建与使用" class="headerlink" title="VPS的创建与使用"></a>VPS的创建与使用</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;搬瓦工默认系统为Centos 6 x86，保持默认即可；DigitalOcean创建VPS的时候(Create Droplet)选择CentOS 6.5 x64（自作聪明选择CentOS 7的人是没救的）；Linode的详细操作说明见下方。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;针对搬瓦工的专属补充教程：可能由于搬瓦工官方发现很多人都在他家的VPS上面搭建了Shadowsocks，于是机灵的官方在自家的控制面板里集成了一键搭建服务，大大降低了新手搭建难度，实现了傻瓜化的操作。我简述下流程：点击“Services”里的“My Services”，点击“KiwiVM Control Panel”，这时会跳转到一个新页面。将新页面左侧的滚动条拉到底，找到“Shadowsocks Server”字样并点击进入，然后点击“Install Shadowsocks Server”，几秒钟之后显示Completed的字样就代表完成了。这时候点击“Go back”或者直接点击左侧的“Shadowsocks Server”，你会看到出现了一个叫做“Shadowsocks server controls”的东西，上面有默认的加密方式(encryption)、服务器端口(port)以及密码(password)，你可以直接使用默认的，也可以点击旁边的“Change xx”按钮进行修改，最后检查一下Status是不是Running，不是的话就点一下旁边的“Start”。至此，你的Shadowsocks服务端就搭建完成了，你可以直接跳转到本教程后面的客户端配置部分了(搬瓦工也自带了简易的客户端配置说明“What’s next?”)。注意，此方法为搬瓦工专属，仅供懒人和纯新手，你如果想在更好更快的其他家的VPS上面搭建Shadowsocks服务，你还是需要老老实实的学习下面的手工搭建方法，而且我强烈建议你如果有能力也有精力，最好掌握搭建的原理，对于你以后维护自己的VPS或者再学习搭建其他的翻墙服务都大有脾益。</p>
 <p>DigitalOcean创建VPS过程补充说明：点击网页左上角绿的“Create Droplet”按钮，输入你的“Droplet Hostname”(英文)，然后“Select Size”选择你的付费套餐，“Select Region”选择按照上面的教程测出来的对你最快的节点，“Select Image”选择CentOS 6.5 x64，没提到的选项保持默认即可，最后点击最下方的“Create Droplet”。</p>
 <p>注册完毕后，你已经获得了你VPS的IP，SSH端口，root密码。去下面的地址下载putty，用于在你的windows系统上远程登陆你的VPS。注意：用putty登录VPS时输入的密码是不可见的，正常输入完毕后回车即可：</p>
-<p>下载地址：<a href="http://www.putty.org/" target="_blank" rel="external">putty</a><br><img src="/images/puttyconfig.png" alt="putty config"><br>Panel”点击“Root password modification”来获得root密码，SSH端口在邮件或者控制面板里可看到，用户名是root；</p>
+<p>下载地址：<a href="http://www.putty.org/" target="_blank" rel="external">putty</a><br><img src="/images/科学上网/1.png" alt="putty config"><br>此操作是在vps上的，Panel”点击“Root password modification”来获得root密码，SSH端口在邮件或者控制面板里可看到，用户名是root，然后直接点解putty open打开输入用户和密码；</p>
 <p>特别警告：搬瓦工的控制面板里有个“OpenVPN Server”选项，可以一键搭建OpenVPN服务端，千万别去使用。否则，到时候你的VPS彻底挂了可别怪我没有提前提醒你(不作死就不会死)，详细原因请自行查看教程后面的进阶答疑部分。</p>
 <p>DigitalOcean则是把密码发到了你邮箱里，而且DigitalOcean在首次登陆VPS的时候系统会提示你修改，你再输入一次原密码后连续输入两次新密码就OK了，DigitalOcean默认SSH端口为22，用户名是root。</p>
-<p>Linode的详细操作说明：Linode账户在绑定信用卡激活后，就可以创建VPS了。值得说明的是，Linode的控制面板较为复杂，当然伴随而来的是功能也更强大。在“Linodes”里选择套餐，左下角选择机房位置，完成后可看到给你分配的IP以及主机名称，点击主机名称比如“linode654321”，然后点击“Deploy a Linux Distribution”，在“Distribution”里面选择“CentOS 6.5”，在“Root Password”的方框里填入你的root密码，然后点击下方的“Deploy”按钮，大概1分钟左右就会创建完毕。点击“Dashboard”下的“Boot”按钮，你的VPS就开始启动了，启动完成后，就可以使用putty来操作你的VPS了，默认SSH端口为22。<br><img src="/images/putty.png" alt="putty config"></p>
+<p>Linode的详细操作说明：Linode账户在绑定信用卡激活后，就可以创建VPS了。值得说明的是，Linode的控制面板较为复杂，当然伴随而来的是功能也更强大。在“Linodes”里选择套餐，左下角选择机房位置，完成后可看到给你分配的IP以及主机名称，点击主机名称比如“linode654321”，然后点击“Deploy a Linux Distribution”，在“Distribution”里面选择“CentOS 6.5”，在“Root Password”的方框里填入你的root密码，然后点击下方的“Deploy”按钮，大概1分钟左右就会创建完毕。点击“Dashboard”下的“Boot”按钮，你的VPS就开始启动了，启动完成后，就可以使用putty来操作你的VPS了，默认SSH端口为22。注意密码不会显示，光标会一直在那，按照正常输入就行。<br><img src="/images/科学上网/2.png" alt="putty config"></p>
 <p>下面的内容需要你有一点点linux的基本知识，用过windows下CMD的小伙伴应该能很快上手，全部命令和内容都可以复制下来通过右键直接粘贴到putty里执行。</p>
-<p>vi编辑器基本用法扫盲（新手必读）<br><a href="http://linux.chinaunix.net/doc/office/2005-01-24/898.shtml（基本用法）" target="_blank" rel="external">http://linux.chinaunix.net/doc/office/2005-01-24/898.shtml（基本用法）</a></p>
-<h2 id="http-linux-vbird-org-linux-basic-0310vi-php（图文详解）"><a href="#http-linux-vbird-org-linux-basic-0310vi-php（图文详解）" class="headerlink" title="http://linux.vbird.org/linux_basic/0310vi.php（图文详解）"></a><a href="http://linux.vbird.org/linux_basic/0310vi.php（图文详解）" target="_blank" rel="external">http://linux.vbird.org/linux_basic/0310vi.php（图文详解）</a></h2><p>Shadowsocks服务端搭建</p>
-<p>下面的命令，需要一行一行的执行，每输入一行命令，回车执行，如果没有报错，即为执行成功，出现确认提示的时候，输入 y 后，回车即可。每行命令可以复制后在putty里右键粘贴，回车执行。</p>
-<p>yum install epel-release<br>yum update<br>yum install python-setuptools m2crypto supervisor<br>easy_install pip<br>pip install shadowsocks<br><img src="/images/rootdef.png" alt="putty config"><br><img src="/images/rootdef1.png" alt="putty config"></p>
+<p>vi编辑器基本用法扫盲（<a href="http://linux.chinaunix.net/doc/office/2005-01-24/898.shtml" target="_blank" rel="external">新手必读</a>）</p>
+<p><a href="http://linux.vbird.org/linux_basic/0310vi.php" target="_blank" rel="external">图文详解</a></p>
+<p>Shadowsocks服务端搭建</p>
+<p>下面的命令，需要一行一行的执行，每输入一行命令，回车执行，如果没有报错，即为执行成功，出现确认提示的时候，输入 y 后，回车即可。每行命令可以复制后在putty里右键粘贴，回车执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div><div class="line">yum update</div><div class="line">yum install python-setuptools m2crypto supervisor</div><div class="line">easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure></p>
+<p><img src="/images/科学上网/3.png" alt="putty config"><br><img src="/images/科学上网/4.png" alt="putty config"></p>
 <p>继续执行命令</p>
-<p>vi /etc/shadowsocks.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/shadowsocks.json</div></pre></td></tr></table></figure>
 <p>此时按 i 键进入编辑模式，putty黑框的左下角会出现 – INSERT – 字样，然后一次性复制下面的内容（复制之前记得修改8388和yourpassword为你自己的端口号和密码，此端口号不是你的SSH端口号，而是你在手机或电脑上的shadowsocks客户端连接VPS上搭建的服务端的端口号，范围 1 - 65535 ，只要不和现有的端口号如SSH端口冲突都可以，记下你修改的端口号和密码，待会儿在配置手机和电脑的客户端时还要用到），在putty里右键，此时复制的内容应该已经粘贴到了putty里</p>
-<p>———-以下内容为复制内容———-<br>{<br>    “server”:”0.0.0.0”,<br>    “server_port”:8388,<br>    “local_port”:1080,<br>    “password”:”yourpassword”,<br>    “timeout”:600,<br>    “method”:”aes-256-cfb”<br>}<br>———-以上内容为复制内容———-<br><img src="/images/rootdef2.png" alt="putty config"></p>
+<p>———-以下内容为复制内容———-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;server_port&quot;:8388,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;yourpassword&quot;,</div><div class="line">    &quot;timeout&quot;:600,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>———-以上内容为复制内容———-<br><img src="/images/科学上网/5.png" alt="putty config"></p>
 <p>复制完成后，按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。（“ : ”的输入方法为“Shift+字母L右侧的分号键”）</p>
-<p>继续执行命令</p>
-<p>vi /etc/supervisord.conf</p>
+<p>继续执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/supervisord.conf</div></pre></td></tr></table></figure></p>
 <p>此时你应该能看到很多英文内容，按 i 键再次进入编辑模式，putty黑框的左下角会出现 – INSERT – 字样，用方向键将光标调整至文件尾部的空行处，然后一次性复制下面的内容，在putty里右键，此时复制的内容应该已经粘贴到了putty里</p>
-<p>———-以下内容为复制内容———-<br>[program:shadowsocks]<br>command=ssserver -c /etc/shadowsocks.json<br>autostart=true<br>autorestart=true<br>user=root<br>log_stderr=true<br>logfile=/var/log/shadowsocks.log<br>———-以上内容为复制内容———-<br><img src="/images/rootdef3.png" alt="putty config"></p>
+<p>———-以下内容为复制内容———-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[program:shadowsocks]</div><div class="line">command=ssserver -c /etc/shadowsocks.json</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">user=root</div><div class="line">log_stderr=true</div><div class="line">logfile=/var/log/shadowsocks.log</div></pre></td></tr></table></figure></p>
+<p>———-以上内容为复制内容———-<br><img src="/images/科学上网/6.png" alt="putty config"></p>
 <p>复制完成后，按下回车键给文件尾部留出空行，然后按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。</p>
-<p>继续执行命令</p>
-<p>vi /etc/rc.local</p>
+<p>继续执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/rc.local</div></pre></td></tr></table></figure></p>
 <p>此时你应该能看到几行英文内容，按 i 键再次进入编辑模式，putty黑框的左下角会出现 – INSERT – 字样，用方向键将光标调整至文件中部的空行处，然后一次性复制下面的内容，在putty里右键，此时复制的内容应该已经粘贴到了putty里</p>
-<p>———-以下内容为复制内容———-<br>service supervisord start<br>———-以上内容为复制内容———-<br><img src="/images/rootdef4.png" alt="putty config"><br>复制完成后，按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。</p>
-<p>最后执行命令</p>
-<p>reboot</p>
-<p>此时，你的VPS重新启动，服务端已经完全配置完毕，putty会弹出一个连接已断开的提示框，关闭即可(不是报错)。<br><img src="/images/rootdef5.png" alt="putty config"></p>
-<h2 id="小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。"><a href="#小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。" class="headerlink" title="小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。"></a>小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。</h2><h2 id="别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程-1、转发-公开-，以帮助更多的人。谢谢！"><a href="#别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程-1、转发-公开-，以帮助更多的人。谢谢！" class="headerlink" title="别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程+1、转发(公开)，以帮助更多的人。谢谢！﻿"></a>别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程+1、转发(公开)，以帮助更多的人。谢谢！﻿</h2><p>Shadowsocks客户端配置</p>
+<p>———-以下内容为复制内容———-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service supervisord start</div></pre></td></tr></table></figure></p>
+<p>———-以上内容为复制内容———-<br><img src="/images/科学上网/7.png" alt="putty config"><br>复制完成后，按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。</p>
+<p>最后执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure></p>
+<p>此时，你的VPS重新启动，服务端已经完全配置完毕，putty会弹出一个连接已断开的提示框，关闭即可(不是报错)。<br><img src="/images/科学上网/8.png" alt="putty config"></p>
+<p>小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。</p>
+<p>别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程+1、转发(公开)，以帮助更多的人。谢谢！﻿</p>
+<p>Shadowsocks客户端配置</p>
 <p>至此，shadowsocks的服务端已经部署完成。剩下的就是下载客户端安装到你的手机和电脑上，记得修改客户端的相关设置保持和你的服务端参数一致哦。</p>
-<p>Android客户端下载链接<br><a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks" target="_blank" rel="external">https://play.google.com/store/apps/details?id=com.github.shadowsocks</a><br>推荐在Google Play下载，自动适配你的系统版本，以免出现问题。<br><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></p>
-<p>电脑客户端端下载链接（Windows、Mac OS X）<br><a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/" target="_blank" rel="external">http://sourceforge.net/projects/shadowsocksgui/files/dist/</a><br>小提醒：Windows 7用户下载Shadowsocks-win-x.x.x.zip，Windows 8用户下载Shadowsocks-win-dotnet4.0-x.x.x.zip。</p>
-<p>iOS客户端端下载链接<br><a href="https://itunes.apple.com/cn/app/shadowsocks/id665729974?mt=8" target="_blank" rel="external">https://itunes.apple.com/cn/app/shadowsocks/id665729974?mt=8</a></p>
+<p>Android客户端下载链接: <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks" target="_blank" rel="external">点我</a></p>
+<p>推荐在Google Play下载，自动适配你的系统版本，以免出现问题。<br><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></p>
+<p>电脑客户端端下载链接（Windows、Mac OS X）<a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/" target="_blank" rel="external">点我</a></p>
+<p>小提醒：Windows 7用户下载Shadowsocks-win-x.x.x.zip，Windows 8用户下载Shadowsocks-win-dotnet4.0-x.x.x.zip。</p>
+<p>iOS客户端端下载链接:<a href="https://itunes.apple.com/cn/app/shadowsocks/id665729974?mt=8" target="_blank" rel="external">点我</a></p>
 <p>Android手机客户端配置示例（以上述服务端配置为例）：<br>注意：已经root手机的小伙伴请勿授予root权限，以免发生未知问题。</p>
 <p>服务器：你的VPS IP地址（非0.0.0.0）<br>远程端口：8388<br>本地端口：1080<br>密码：yourpassword<br>加密方法：AES-256-CFB<br>路由：绕过局域网及中国大陆地址<br>全局代理：勾选<br>UDP转发：建议勾选，如有问题则取消勾选<br>自动连接：勾选</p>
 <p>电脑客户端配置示例（以上述服务端配置为例）：<br>（示例客户端版本：Shadowsocks-win-2.1.6.zip (144.9 kB)，系统Windows 7，如遇无法启动的情况，请右键以管理员身份运行）</p>
 <p>服务器 IP：你的VPS IP地址（非0.0.0.0）<br>服务器端口：8388<br>密码：yourpassword<br>加密：aes-256-cfb<br>代理端口：1080<br>备注：随便写</p>
 <p>右键任务栏飞机小图标，勾选“启用代理”、“开机启动”。</p>
 <p>注：新版的shadowsocks电脑客户端已经支持一键切换系统代理，无需浏览器插件，内置可编辑的PAC服务，并提供HTTP代理，兼容IE。当然，你也可以继续使用Chrome浏览器配合SwitchySharp代理插件使用，SwitchySharp的具体配置如下图所示：</p>
-<hr>
 <p>以上内容在搬瓦工和DigitalOcean以及Linode三家的VPS上已经全部测试通过，无误。</p>
 <p>对于能够成功连接但觉得上网速度慢的小伙伴：</p>
 <p>1.请先确认你自己有没有严格按照教程选择对你最快的节点；<br>2.请将server_port由默认的8388改为其他端口；<br>3.如果速度还是不满意，那么请将你的VPS更换为DigitalOcean或者Linode（你要始终相信一分价钱一分货）。<br>4.南方部分地区电信用户的国际出口遭到电信人为限制，如果当地有“国际精品网”业务，开通后可立即完美解决这个问题。如果不愿意给电信交保护费，建议尝试使用DigitalOcean的新加坡节点或者Linode的日本节点，如果速度还是不满意，换移动和联通吧。</p>
-<h2 id="看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程-1、转发-公开-，以帮助更多的人哦。谢谢！"><a href="#看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程-1、转发-公开-，以帮助更多的人哦。谢谢！" class="headerlink" title="看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程+1、转发(公开)，以帮助更多的人哦。谢谢！﻿"></a>看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程+1、转发(公开)，以帮助更多的人哦。谢谢！﻿</h2><p>进阶答疑</p>
+<p>看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程+1、转发(公开)，以帮助更多的人哦。谢谢！﻿</p>
+<p>进阶答疑</p>
 <p>本答疑会根据大家的反馈以及shadowsocks的不断更新而不定期更新，进阶部分针对已经具备一定基础的非新手，这部分内容遇到任何问题请自行Google。</p>
 <p>1.Android 5.0的Shadowsocks为什么耗电量非常高？</p>
 <p>Android 5.0的电量统计模块把所有经过shadowsocks代理的流量所产生的耗电量都算在了shadowsocks上，因此看起来会很耗电，比如你Chrome浏览器的电量都被算到了shadowsocks头上，实际上还是很省电的。</p>
@@ -192,8 +186,7 @@ OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人�
 <p>5.我开始选择的节点线路不理想，如何切换机房？</p>
 <p>搬瓦工：VPS控制面板里，Migrate to another DC，无需重新搭建Shadowsocks服务端。<br>DigitalOcean：新建一台你想要机房的VPS，删除原来的，需要重新搭建Shadowsocks服务端。<br>Linode：新建一台你想要机房的VPS，删除原来的，需要重新搭建Shadowsocks服务端。</p>
 <p>6.如何配置多账户？</p>
-<p>小提示：Shadowsocks支持一个账户在多个终端同时使用，一般人没有配置多账户的必要。所以如果你看不懂，那你还是别折腾了。</p>
-<p>{<br>    “server”:”0.0.0.0”,<br>    “port_password”:{<br>        “8388”:”password1”,<br>        “8389”:”password2”,<br>        “8390”:”password3”,<br>        “8391”:”password4”<br>    },<br>    “timeout”:300,<br>    “method”:”aes-256-cfb”<br>}</p>
+<p>小提示：Shadowsocks支持一个账户在多个终端同时使用，一般人没有配置多账户的必要。所以如果你看不懂，那你还是别折腾了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;port_password&quot;:&#123;</div><div class="line">        &quot;8388&quot;:&quot;password1&quot;,</div><div class="line">        &quot;8389&quot;:&quot;password2&quot;,</div><div class="line">        &quot;8390&quot;:&quot;password3&quot;,</div><div class="line">        &quot;8391&quot;:&quot;password4&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;timeout&quot;:300,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>友情提醒：GFW目前是根据流量检测分析匹配统计学模型的方式来判断你是否在翻墙，换言之，你用什么方式翻墙并不重要，重要的是你和服务器之间的流量特征是否像是在翻墙。一旦匹配，既对你进行有罪推论，轻则限速，重则彻底封锁IP。在IPv4地址已经枯竭的今天，可用的美国IP地址会越来越少，所以不建议将自己的账号分享多人使用，以防被封。</p>
 <p>7.为什么我的shadowsocks在刚搭建好的时候速度很快用了几天后速度就变慢了甚至网页都很难刷出来？</p>
 <p>出现这种情况有多种可能性：</p>
@@ -211,8 +204,8 @@ OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人�
 <p>Python版的Shadowsocks易部署，后期升级维护都非常方便，相当适合新手，支持的特性也最多，稳定性好，运行效率高。</p>
 <p>10.为什么使用supervisord？</p>
 <p>与繁琐的带参执行方式相比，service命令在CentOS系统里使用起来更加灵活方便，比如：</p>
-<p>①启动Shadowsocks服务端：service supervisord start<br>②关闭Shadowsocks服务端：service supervisord stop</p>
-<h2 id="③重启shadowsocks服务端：service-supervisord-restart"><a href="#③重启shadowsocks服务端：service-supervisord-restart" class="headerlink" title="③重启shadowsocks服务端：service supervisord restart"></a>③重启shadowsocks服务端：service supervisord restart</h2><p>错误排查</p>
+<p>①启动Shadowsocks服务端：service supervisord start<br>②关闭Shadowsocks服务端：service supervisord stop<br>③重启shadowsocks服务端：service supervisord restart</p>
+<p>错误排查</p>
 <p>已经成功的小伙伴可以直接略过这部分了。</p>
 <p>温馨提醒：在怀疑教程的任何一个地方之前，请先怀疑你自己。</p>
 <p>服务端搭建成功的唯一衡量标准是在手机或者电脑客户端正确配置后能否顺利的访问被屏蔽的网站，无论是电脑还是手机，只要有一个终端能够成功翻墙即视为服务端搭建成功，出现所谓的可以连接但无法上网其实还是服务端或者客户端的配置有问题，认真按照下面的步骤一步步排错吧。</p>
@@ -222,7 +215,8 @@ OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人�
 <p>1.执行命令service supervisord start，执行完毕后如果没有报错，手机端也可以正常连接，那么问题出在vi /etc/rc.local这个环节，请重新检查该文件配置；如果手机端依然无法连接，请继续往下看。</p>
 <p>2.执行命令ssserver -c /etc/shadowsocks.json，执行完毕后如果没有报错，手机端也可以正常连接，那么问题出在vi /etc/supervisord.conf这个环节，请重新检查该文件配置；如果手机端依然无法连接，请继续往下看。</p>
 <p>3.如果依次进行完以上两步后，手机端依然无法连接，那么问题出在vi /etc/shadowsocks.json环节，请重新检查该文件配置。</p>
-<h2 id="4-如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。"><a href="#4-如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。" class="headerlink" title="4.如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。"></a>4.如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。</h2><p>尾巴</p>
+<p>4.如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。</p>
+<p>尾巴</p>
 <p>整个教程到这里就结束了，我按照自己写的内容重新搭建了一遍没有遇到问题，大家有什么问题可以在帖子下面提问，在提问之前请先确保你是严格按照教程一步步认真往下执行了的。</p>
   
 	</div>
@@ -263,7 +257,7 @@ OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人�
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks特点："><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS推荐与支付"><span class="toc-number">2.</span> <span class="toc-text">VPS推荐与支付:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS深入说明与选择："><span class="toc-number">3.</span> <span class="toc-text">VPS深入说明与选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS节点的选择"><span class="toc-number">4.</span> <span class="toc-text">VPS节点的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS的创建与使用"><span class="toc-number">5.</span> <span class="toc-text">VPS的创建与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-linux-vbird-org-linux-basic-0310vi-php（图文详解）"><span class="toc-number">6.</span> <span class="toc-text">http://linux.vbird.org/linux_basic/0310vi.php（图文详解）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。"><span class="toc-number">7.</span> <span class="toc-text">小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程-1、转发-公开-，以帮助更多的人。谢谢！"><span class="toc-number">8.</span> <span class="toc-text">别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程+1、转发(公开)，以帮助更多的人。谢谢！﻿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程-1、转发-公开-，以帮助更多的人哦。谢谢！"><span class="toc-number">9.</span> <span class="toc-text">看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程+1、转发(公开)，以帮助更多的人哦。谢谢！﻿</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#③重启shadowsocks服务端：service-supervisord-restart"><span class="toc-number">10.</span> <span class="toc-text">③重启shadowsocks服务端：service supervisord restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。"><span class="toc-number">11.</span> <span class="toc-text">4.如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks特点："><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS推荐与支付"><span class="toc-number">2.</span> <span class="toc-text">VPS推荐与支付:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS深入说明与选择："><span class="toc-number">3.</span> <span class="toc-text">VPS深入说明与选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS节点的选择"><span class="toc-number">4.</span> <span class="toc-text">VPS节点的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS的创建与使用"><span class="toc-number">5.</span> <span class="toc-text">VPS的创建与使用</span></a></li></ol>
   </div>
 
 <div id="asidepart">
