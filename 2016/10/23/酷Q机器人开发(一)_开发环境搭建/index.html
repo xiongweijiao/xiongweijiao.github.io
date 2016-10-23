@@ -101,12 +101,12 @@
 		<p>【原创】酷Q是一款轻快实用的QQ机器人软件,它可以实现群管理、好友聊天、日常便民等多种功能。对它进行学习，可以很方便的开发出我们需要的功能，比如在QQ群自动发视频、发图片、发广告、点歌、玩游戏等，只要qq上有的它都能自动实现。</p>
 <h2 id="酷Q软件下载"><a href="#酷Q软件下载" class="headerlink" title="酷Q软件下载"></a>酷Q软件下载</h2><p>工欲善其事，必先利其器。我们首先去官网<a href="http://cqp.cc/" target="_blank" rel="external">点我</a>下载软件,其下载引导很清晰，下载完了然后安装就行。它目前有两个类，一个是免费的<strong>Air和图灵版本</strong>，还有收费的12元/月的<strong>pro版本</strong>，pro版本可以发图片语音和厘米秀。目前我们使用Air版本，等有需求时在用pro。</p>
 <h2 id="开启开发者模式"><a href="#开启开发者模式" class="headerlink" title="开启开发者模式"></a>开启开发者模式</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;软件安装好后，打开登陆界面，建议用小号登陆，登陆前先绑定手机锁。不可以手机和酷Q软件同时登陆，但可以和电脑一起登。打开酷Q目录下的 conf\CQP.cfg 文件，并在文件末尾插入以下两行，即可开启开发者模式。您可以使用“Notepad++”、“记事本”等文本编辑器编辑本文件。一定注意编辑完要检查一下文件格式，不要变，是.cfg<br>如果本文件不存在，您可以先启动一次 酷Q，本文件将自动被生成。然后重启。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[Debug]</div><div class="line">DeveloperMode=1</div></pre></td></tr></table></figure></p>
-<p>效果如下：<br><img src="/images/酷Q开发/1.png" alt="pic"></p>
+<p>效果如下：<br><img src="/images/酷Q开发/一/1.png" alt="pic"></p>
 <h2 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;我们用的是易语言软件开发，去酷Q官网下载SDK<a href="https://cqp.cc/forum.php?mod=viewthread&amp;tid=15124&amp;highlight=sdk" target="_blank" rel="external">点我进入官网</a>，不知啥叫SDK的自行百度补课。下载好后解压，自己打开看看里面都有啥功能。</p>
 <h2 id="易语言软件"><a href="#易语言软件" class="headerlink" title="易语言软件"></a>易语言软件</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;网上有好多破解的易语言软件，自己百度下载。用易语言打开解压的SDk目录下的<strong>com.example.demo.e</strong>文件，其他的以后说，然后自己看看都有哪些代码。然后点击菜单下的编译-静态编译，注意保存格式是dll。若遇到静态编译失败，<a href="http://jingyan.baidu.com/album/5bbb5a1b38511113eba17912.html" target="_blank" rel="external">点我</a></p>
 <h2 id="打包成cpk格式的文件"><a href="#打包成cpk格式的文件" class="headerlink" title="打包成cpk格式的文件"></a>打包成cpk格式的文件</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;将刚才编译为 com.example.demo.dll文件，放置在酷Q的app目录下测试,同时也将解压的sdk里的com.example.demo.json也请放置在酷Q的app目录下。</p>
-<p><img src="/images/酷Q开发/2.png" alt="pic"></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;打开酷Q软件菜单的应用-应用管理-选择刚才的插件，然后点击开发就可以生成.cpk文件用于发布，在其他未开启debug模式的软件使用。<br><img src="/images/酷Q开发/3.png" alt="pic"></p>
+<p><img src="/images/酷Q开发/一/2.png" alt="pic"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;打开酷Q软件菜单的应用-应用管理-选择刚才的插件，然后点击开发就可以生成.cpk文件用于发布，在其他未开启debug模式的软件使用。<br><img src="/images/酷Q开发/一/3.png" alt="pic"></p>
 <p>好了，开发环境就搭建好了。自己摸索一下其他功能，一般易语言的软件使用会有一定问题，安装后一定在，菜单工具-支持库配置-全选-确定才能不编译出错。若一点确定就软件强行退出，这里是因为数据保护的原因，你把错误提示的内容复制然后百度，会有解决的方法,有问题在下面留言，看到会及时解答</p>
   
 	</div>
