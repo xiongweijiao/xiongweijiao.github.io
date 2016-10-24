@@ -4,13 +4,21 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>酷Q机器人开发(一)_开发环境搭建 | 潇湘雨的博客</title>
+    <title>百度语音蓝牙小车 | 潇湘雨的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xiongwei jiao">
     
-    <meta name="description" content="【原创】酷Q是一款轻快实用的QQ机器人软件,它可以实现群管理、好友聊天、日常便民等多种功能。对它进行学习，可以很方便的开发出我们需要的功能，比如在QQ群自动发视频、发图片、发广告、点歌、玩游戏等，只要qq上有的它都能自动实现。
-酷Q软件下载工欲善其事，必先利其器。我们首先去官网点我下载软件,其下载引">
+    <meta name="description" content="百度语音蓝牙android端遥控四驱小车是一个很简单的单片机和android学习的教程，以蓝牙为手机和单片机传输的数据
+所用器件
+51单片机最小系统
+android手机
+L298N驱动模块、电源和若干杜邦线
+超声波模块、激光笔
+
+功能
+实现四驱小车的按键向前、向后、向左、向右
+实现四驱小车的手机重力">
     
     
     
@@ -78,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/10/23/酷Q机器人开发(一)_开发环境搭建/" title="酷Q机器人开发(一)_开发环境搭建" itemprop="url">酷Q机器人开发(一)_开发环境搭建</a>
+      <a href="/2016/10/24/百度语音蓝牙小车/" title="百度语音蓝牙小车" itemprop="url">百度语音蓝牙小车</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xiongwei jiao">xiongwei jiao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-10-23T03:00:38.062Z" itemprop="datePublished">2016-10-23</time>
+    <time datetime="2016-10-24T02:01:45.252Z" itemprop="datePublished">2016-10-24</time>
     
   </p>
 </header>
@@ -95,39 +103,59 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#酷Q软件下载"><span class="toc-number">1.</span> <span class="toc-text">酷Q软件下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启开发者模式"><span class="toc-number">2.</span> <span class="toc-text">开启开发者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载SDK"><span class="toc-number">3.</span> <span class="toc-text">下载SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#易语言软件"><span class="toc-number">4.</span> <span class="toc-text">易语言软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包成cpk格式的文件"><span class="toc-number">5.</span> <span class="toc-text">打包成cpk格式的文件</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#所用器件"><span class="toc-number">1.</span> <span class="toc-text">所用器件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能"><span class="toc-number">2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程分析"><span class="toc-number">3.</span> <span class="toc-text">流程分析</span></a></li></ol>
 		</div>
 		
-		<p>【原创】酷Q是一款轻快实用的QQ机器人软件,它可以实现群管理、好友聊天、日常便民等多种功能。对它进行学习，可以很方便的开发出我们需要的功能，比如在QQ群自动发视频、发图片、发广告、点歌、玩游戏等，只要qq上有的它都能自动实现。</p>
-<h2 id="酷Q软件下载"><a href="#酷Q软件下载" class="headerlink" title="酷Q软件下载"></a>酷Q软件下载</h2><p>工欲善其事，必先利其器。我们首先去官网<a href="http://cqp.cc/" target="_blank" rel="external">点我</a>下载软件,其下载引导很清晰，下载完了然后安装就行。它目前有两个类，一个是免费的<strong>Air和图灵版本</strong>，还有收费的12元/月的<strong>pro版本</strong>，pro版本可以发图片语音和厘米秀。目前我们使用Air版本，等有需求时在用pro。</p>
-<h2 id="开启开发者模式"><a href="#开启开发者模式" class="headerlink" title="开启开发者模式"></a>开启开发者模式</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;软件安装好后，打开登陆界面，建议用小号登陆，登陆前先绑定手机锁。不可以手机和酷Q软件同时登陆，但可以和电脑一起登。打开酷Q目录下的 conf\CQP.cfg 文件，并在文件末尾插入以下两行，即可开启开发者模式。您可以使用“Notepad++”、“记事本”等文本编辑器编辑本文件。一定注意编辑完要检查一下文件格式，不要变，是.cfg<br>如果本文件不存在，您可以先启动一次 酷Q，本文件将自动被生成。然后重启。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[Debug]</div><div class="line">DeveloperMode=1</div></pre></td></tr></table></figure></p>
-<p>效果如下：<br><img src="/images/酷Q开发/一/1.png" alt="pic"></p>
-<h2 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;我们用的是易语言软件开发，去酷Q官网下载SDK<a href="https://cqp.cc/forum.php?mod=viewthread&amp;tid=15124&amp;highlight=sdk" target="_blank" rel="external">点我进入官网</a>，不知啥叫SDK的自行百度补课。下载好后解压，自己打开看看里面都有啥功能。</p>
-<h2 id="易语言软件"><a href="#易语言软件" class="headerlink" title="易语言软件"></a>易语言软件</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;网上有好多破解的易语言软件，自己百度下载。用易语言打开解压的SDk目录下的<strong>com.example.demo.e</strong>文件，其他的以后说，然后自己看看都有哪些代码。然后点击菜单下的编译-静态编译，注意保存格式是dll。若遇到静态编译失败，<a href="http://jingyan.baidu.com/album/5bbb5a1b38511113eba17912.html" target="_blank" rel="external">点我</a></p>
-<h2 id="打包成cpk格式的文件"><a href="#打包成cpk格式的文件" class="headerlink" title="打包成cpk格式的文件"></a>打包成cpk格式的文件</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;将刚才编译为 com.example.demo.dll文件，放置在酷Q的app目录下测试,同时也将解压的sdk里的com.example.demo.json也请放置在酷Q的app目录下。</p>
-<p><img src="/images/酷Q开发/一/2.png" alt="pic"></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;打开酷Q软件菜单的应用-应用管理-选择刚才的插件，然后点击开发就可以生成.cpk文件用于发布，在其他未开启debug模式的软件使用。<br><img src="/images/酷Q开发/一/3.png" alt="pic"></p>
-<p>好了，开发环境就搭建好了。自己摸索一下其他功能，一般易语言的软件使用会有一定问题，安装后一定在，菜单工具-支持库配置-全选-确定才能不编译出错。若一点确定就软件强行退出，这里是因为数据保护的原因，你把错误提示的内容复制然后百度，会有解决的方法,有问题在下面留言，看到会及时解答</p>
+		<p>百度语音蓝牙android端遥控四驱小车是一个很简单的单片机和android学习的教程，以蓝牙为手机和单片机传输的数据</p>
+<h2 id="所用器件"><a href="#所用器件" class="headerlink" title="所用器件"></a>所用器件</h2><ul>
+<li>51单片机最小系统</li>
+<li>android手机</li>
+<li>L298N驱动模块、电源和若干杜邦线</li>
+<li>超声波模块、激光笔</li>
+</ul>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>实现四驱小车的按键向前、向后、向左、向右</li>
+<li>实现四驱小车的手机重力向前、向后、向左、向右</li>
+<li>利用单片机的pwm实现小车变速</li>
+<li>利用单片机控制激光笔的开关，实现对目标的瞄准</li>
+<li>利用超声波模块进行测距</li>
+<li>调用百度语音api实现语音转文字，然后对文字的关键字进行提取处理，实现发送控制命令指令</li>
+<li>利用定时器实现小车以若干速度进行定时前进</li>
+</ul>
+<h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;刚开始的时候自己也没有考虑要做出有哪些功能的小车，但心里有一个基本思路，就是要能够实现手机遥控小车向前、向右的功能，然后最后拓展功能。然后就选择单片机的型号，由于比较熟悉51单片机，就选择stc89c52，先来就是买了一个小车底座，带了四个电机，这种电机特费电，为了驱动电机还买了L298N驱动模块，因为单片机的io口是驱动不了的，我以前自己学过一点android，很马马虎虎。所有的器材都准备好了，就开始写代码，首先我就写控制电机怎么转，写好了，然后就开始调试串口通信，这一步写好了，然后手机上下载了个蓝牙调试助手，看是不是串口能正常工作，串口写好了，然后就开始写android，自己修改的android的蓝牙聊天案例，然后就实现了基本功能，这其中遇到了很多困难，还好我的思路制作流程是正确的，我知道遇到问题该怎么着方法去解决。基本功能完成后，我当然不能满足于此，想着怎么拓展新功能。下面是我想的几个功能。</p>
+<ul>
+<li>弄一些酷炫的led灯，让车走的时候闪烁</li>
+<li>弄个喇叭，然后让它响，但是和控制led一样，没啥技术，或者播放个音乐，但明显单片机处理这个花销很大，不是好主意</li>
+<li>让它变速行驶，不错，这也是基本功能</li>
+<li>其他的想不出来</li>
+</ul>
+<p>然后我就开始找如何控制速度，发现控制一个io口输出pwm波即可，然后花了一些时间找了，一些代码。完成</p>
+<p>做了这些，觉得没啥新意，然后去百度了一些视频，看人家是怎么做的，人家有啥好玩的功能，自己能不能参考一下。发现可以用手机的重力传感器遥控，这个不错，按键太麻烦了，还有语音也可以遥控，重力比较好做，这方面代码比较多，语音控制，怎么控制啊，一点头绪都没有。突然想起自己以前做过一个图灵QQ机器人的app，然后想利用第三方的api把语音变成字符串就好办了，一所就搜到了百度语音，官方的sdk很官方，自己以前不懂，大概就下载下来摸索着做，终于实现把语音转文字了，心里很激动。经过整合，完成。但是自己一直做的事是如何控制小车前进啊、后退这些。能不能加载一些实用的模块了，当然是测距了，买了一个超声波模块，然后就实现了，后来又买了一个激光笔准备实现对水平参考，刚开始是想买个大功率的可以点木头的，但太危险了，不敢玩。基本上所有的功能完成了，花了自己半年时间，都是断断续续，一周抽几个小时。到这里算是做完了，自己很开心。</p>
+<p>虽然丑了一点，但是整个流程自己懂了，等有空了做好看一点，做这玩意还是很费钱的，花了我大约150元，主要是买了个充电电池和l298n因为它带了好多功能，现在放着也没用，有点浪费。</p>
+<p>这是演示视频，视频若未加载请等待或刷新</p>
+<iframe frameborder="0" width="640" height="498" src="http://v.qq.com/iframe/player.html?vid=f0196dw6k3c&tiny=0&auto=0" allowfullscreen></iframe>
+
+<p>具体代码原理就不分析了，网上一大把资料，只要你用心去找的话。<br>有问题可以在下方评论。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/QQ机器人/">QQ机器人</a>
+  <span></span> <a href="/tags/小车/">小车</a><a href="/tags/蓝牙/">蓝牙</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/QQ机器人/">QQ机器人</a>
+  <a class="article-category-link" href="/categories/我的作品/">我的作品</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/10/23/酷Q机器人开发(一)_开发环境搭建/" data-title="酷Q机器人开发(一)_开发环境搭建 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/10/24/百度语音蓝牙小车/" data-title="百度语音蓝牙小车 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -136,19 +164,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/10/24/百度语音蓝牙小车/" title="百度语音蓝牙小车">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  百度语音蓝牙小车</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/10/21/科学上网/"  title="Shadowsocks 从零开始一站式翻墙教程">
+<a href="/2016/10/23/酷Q机器人开发(一)_开发环境搭建/"  title="酷Q机器人开发(一)_开发环境搭建">
  <strong>NEXT:</strong><br/> 
- <span>Shadowsocks 从零开始一站式翻墙教程
+ <span>酷Q机器人开发(一)_开发环境搭建
 </span>
 </a>
 </div>
@@ -165,7 +185,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#酷Q软件下载"><span class="toc-number">1.</span> <span class="toc-text">酷Q软件下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启开发者模式"><span class="toc-number">2.</span> <span class="toc-text">开启开发者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载SDK"><span class="toc-number">3.</span> <span class="toc-text">下载SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#易语言软件"><span class="toc-number">4.</span> <span class="toc-text">易语言软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包成cpk格式的文件"><span class="toc-number">5.</span> <span class="toc-text">打包成cpk格式的文件</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#所用器件"><span class="toc-number">1.</span> <span class="toc-text">所用器件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能"><span class="toc-number">2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程分析"><span class="toc-number">3.</span> <span class="toc-text">流程分析</span></a></li></ol>
   </div>
 
 <div id="asidepart">
