@@ -112,7 +112,7 @@ a img {
 }
 body {
   background: #c7d6d6;
-  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: "Microsoft YaHei", "Helvetica", "Helvetica Neue", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 100%;
   color: #817c7c;
   line-height: 1.5;
@@ -426,7 +426,7 @@ body >header a {
 }
 #textlogo h1.site-name {
   width: 86%;
-  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: "Microsoft YaHei", "Helvetica", "Helvetica Neue", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 160%;
   line-height: 1.9;
   font-weight: normal;
@@ -1780,7 +1780,7 @@ footer {
   }
 }
 .info {
-  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: "Microsoft YaHei", "Helvetica", "Helvetica Neue", "WenQuanYi Micro Hei", Arial, sans-serif;
   line-height: 1.65;
   width: 90%;
   margin: 0 auto;
@@ -1849,7 +1849,7 @@ footer {
   content: "\f09a";
 }
 .copyright {
-  font-family: "Helvetica Neue", "Helvetica", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: "Microsoft YaHei", "Helvetica", "Helvetica Neue", "WenQuanYi Micro Hei", Arial, sans-serif;
   font-size: 0.6em;
   width: 100%;
   color: #fff;
@@ -1868,7 +1868,7 @@ footer {
 }
 .article-content pre,
 .article-content .highlight {
-  background: #fff;
+  background: #111;
   margin: 0.5em 0;
   padding: 1em 2%;
   overflow: auto;
@@ -1930,7 +1930,7 @@ footer {
 }
 .article-content .gist {
   margin: 0.5em 0;
-  background: #fff;
+  background: #111;
   padding: 1em 2%;
 }
 .article-content .gist .gist-file {
@@ -1956,7 +1956,7 @@ footer {
   border: none;
 }
 .article-content .gist .gist-file .gist-meta {
-  background: #fff;
+  background: #111;
   color: #8e908c;
   font: 0.85em "Georgia", serif;
   padding: 0;
