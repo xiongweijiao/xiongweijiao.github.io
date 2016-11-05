@@ -4,21 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>百度语音蓝牙小车 | 潇湘雨的博客</title>
+    <title>nrf51822_keil开发环境设置 | 潇湘雨的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xiongwei jiao">
     
-    <meta name="description" content="百度语音蓝牙android端遥控四驱小车是一个很简单的单片机和android学习的教程，以蓝牙为手机和单片机传输的数据
-所用器件
-51单片机最小系统
-android手机
-L298N驱动模块、电源和若干杜邦线
-超声波模块、激光笔
+    <meta name="description" content="在对nrf51822芯片开发前，我们必须要对开发工具进行环境设置，且一定要熟悉各个软件的功能是啥，不然出了问题无从下手。
+开发时需要哪些工具
+keil mdk-arm系列（我们编写代码的软件）
+nrfstudio go（下载协议栈和hex文件的软件）
 
-功能
-实现四驱小车的按键向前、向后、向左、向右
-实现四驱小车的手机重力">
+keil的安装不管是哪个软件，一律推荐从官网下">
     
     
     
@@ -86,14 +82,14 @@ L298N驱动模块、电源和若干杜邦线
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/10/24/百度语音蓝牙小车/" title="百度语音蓝牙小车" itemprop="url">百度语音蓝牙小车</a>
+      <a href="/2016/11/05/nrf51822_keil开发环境设置/" title="nrf51822_keil开发环境设置" itemprop="url">nrf51822_keil开发环境设置</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xiongwei jiao">xiongwei jiao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-10-24T02:01:45.252Z" itemprop="datePublished">2016-10-24</time>
+    <time datetime="2016-11-05T01:54:14.198Z" itemprop="datePublished">2016-11-05</time>
     
   </p>
 </header>
@@ -103,59 +99,40 @@ L298N驱动模块、电源和若干杜邦线
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#所用器件"><span class="toc-number">1.</span> <span class="toc-text">所用器件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能"><span class="toc-number">2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程分析"><span class="toc-number">3.</span> <span class="toc-text">流程分析</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发时需要哪些工具"><span class="toc-number">1.</span> <span class="toc-text">开发时需要哪些工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keil的安装"><span class="toc-number">2.</span> <span class="toc-text">keil的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nrfstudio-go安装"><span class="toc-number">3.</span> <span class="toc-text">nrfstudio go安装</span></a></li></ol>
 		</div>
 		
-		<p>百度语音蓝牙android端遥控四驱小车是一个很简单的单片机和android学习的教程，以蓝牙为手机和单片机传输的数据</p>
-<h2 id="所用器件"><a href="#所用器件" class="headerlink" title="所用器件"></a>所用器件</h2><ul>
-<li>51单片机最小系统</li>
-<li>android手机</li>
-<li>L298N驱动模块、电源和若干杜邦线</li>
-<li>超声波模块、激光笔</li>
+		<p>在对nrf51822芯片开发前，我们必须要对开发工具进行环境设置，且一定要熟悉各个软件的功能是啥，不然出了问题无从下手。</p>
+<h2 id="开发时需要哪些工具"><a href="#开发时需要哪些工具" class="headerlink" title="开发时需要哪些工具"></a>开发时需要哪些工具</h2><ul>
+<li>keil mdk-arm系列（我们编写代码的软件）</li>
+<li>nrfstudio go（下载协议栈和hex文件的软件）</li>
 </ul>
-<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
-<li>实现四驱小车的按键向前、向后、向左、向右</li>
-<li>实现四驱小车的手机重力向前、向后、向左、向右</li>
-<li>利用单片机的pwm实现小车变速</li>
-<li>利用单片机控制激光笔的开关，实现对目标的瞄准</li>
-<li>利用超声波模块进行测距</li>
-<li>调用百度语音api实现语音转文字，然后对文字的关键字进行提取处理，实现发送控制命令指令</li>
-<li>利用定时器实现小车以若干速度进行定时前进</li>
-</ul>
-<h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;刚开始的时候自己也没有考虑要做出有哪些功能的小车，但心里有一个基本思路，就是要能够实现手机遥控小车向前、向右的功能，然后最后拓展功能。然后就选择单片机的型号，由于比较熟悉51单片机，就选择stc89c52，先来就是买了一个小车底座，带了四个电机，这种电机特费电，为了驱动电机还买了L298N驱动模块，因为单片机的io口是驱动不了的，我以前自己学过一点android，很马马虎虎。所有的器材都准备好了，就开始写代码，首先我就写控制电机怎么转，写好了，然后就开始调试串口通信，这一步写好了，然后手机上下载了个蓝牙调试助手，看是不是串口能正常工作，串口写好了，然后就开始写android，自己修改的android的蓝牙聊天案例，然后就实现了基本功能，这其中遇到了很多困难，还好我的思路制作流程是正确的，我知道遇到问题该怎么着方法去解决。基本功能完成后，我当然不能满足于此，想着怎么拓展新功能。下面是我想的几个功能。</p>
-<ul>
-<li>弄一些酷炫的led灯，让车走的时候闪烁</li>
-<li>弄个喇叭，然后让它响，但是和控制led一样，没啥技术，或者播放个音乐，但明显单片机处理这个花销很大，不是好主意</li>
-<li>让它变速行驶，不错，这也是基本功能</li>
-<li>其他的想不出来</li>
-</ul>
-<p>然后我就开始找如何控制速度，发现控制一个io口输出pwm波即可，然后花了一些时间找了，一些代码。完成</p>
-<p>做了这些，觉得没啥新意，然后去百度了一些视频，看人家是怎么做的，人家有啥好玩的功能，自己能不能参考一下。发现可以用手机的重力传感器遥控，这个不错，按键太麻烦了，还有语音也可以遥控，重力比较好做，这方面代码比较多，语音控制，怎么控制啊，一点头绪都没有。突然想起自己以前做过一个图灵QQ机器人的app，然后想利用第三方的api把语音变成字符串就好办了，一所就搜到了百度语音，官方的sdk很官方，自己以前不懂，大概就下载下来摸索着做，终于实现把语音转文字了，心里很激动。经过整合，完成。但是自己一直做的事是如何控制小车前进啊、后退这些。能不能加载一些实用的模块了，当然是测距了，买了一个超声波模块，然后就实现了，后来又买了一个激光笔准备实现对水平参考，刚开始是想买个大功率的可以点木头的，但太危险了，不敢玩。基本上所有的功能完成了，花了自己半年时间，都是断断续续，一周抽几个小时。到这里算是做完了，自己很开心。</p>
-<p>虽然丑了一点，但是整个流程自己懂了，等有空了做好看一点，做这玩意还是很费钱的，花了我大约150元，主要是买了个充电电池和l298n因为它带了好多功能，现在放着也没用，有点浪费。</p>
-<p>这是演示视频，视频若未加载请等待或刷新</p>
-<iframe frameborder="0" width="640" height="498" src="http://v.qq.com/iframe/player.html?vid=f0196dw6k3c&tiny=0&auto=0" allowfullscreen></iframe>
-
-<p>具体代码原理就不分析了，网上一大把资料，只要你用心去找的话。<br>有问题可以在下方评论。</p>
+<h2 id="keil的安装"><a href="#keil的安装" class="headerlink" title="keil的安装"></a>keil的安装</h2><p>不管是哪个软件，一律推荐从官网下载，因为官网是最新的，没有二次开发，无毒，功能全。百度keil官网或者点我<a href="https://www.keil.com/demo/ev" target="_blank" rel="external">keil官网下载mdk-arm</a> 一定注意是arm不是c51，进行简单的信息填写后，有个Which ARM architectures are you using?我们选择Cortex-M0，然后提交就可以下载了，下载完了，和普通软件一样，安装就行了。</p>
+<p>下来就是破解，百度keil5注册机或<a href="http://bbs.armfly.com/read.php?tid=2346" target="_blank" rel="external">点我下载</a>，进行破解，破解时注意选择的是arm系列。不破解可能编译软件会出问题。有能力的推荐去购买。</p>
+<p>下来就是安装nrf51系列的sdk了，百度nrf51sdk或<a href="http://developer.nordicsemi.com/nRF5_SDK/" target="_blank" rel="external">点我下载</a>，我们选择下载nrf5-sdk–v10.把sdk和pack都下载下来。<br><img src="/images/nrf51822环境设置/1.png" alt="pic"><br>把sdk<em>.zip解压，安装sdk</em>.msi。<br>把sdk-<strong>-device-pack.zip解压到keil安装目录Keil_v5\ARM\PACK下，打开解压文件夹有个install.bat双击，根据相应提示输入。<br>这里就keil的安装完成了，打开解压的sdk<em>*</em></strong>.zip文件，里面有example，自己可以运行一下。</p>
+<p><strong>提示若出现这种情况，就安装sdk*.msi，就是刚才下载的sdk解压的那里</strong><br><img src="/images/nrf51822环境设置/2.png" alt="pic"><br>若提示softdevicepack no found就把pack安上<br>这里建议把sdk和devicepack,都安装上，安了sdk的运行官方的案例就没问题，安了devicepack的运行二次开发的程序如聚码的就没问题了。两者具体啥区别，不知道，反正安了没错</p>
+<h2 id="nrfstudio-go安装"><a href="#nrfstudio-go安装" class="headerlink" title="nrfstudio go安装"></a>nrfstudio go安装</h2><p>前面已经说过了是下载协议栈的，因为keil无法下载协议栈。<br>百度nrfsudio go,下载软件或者去官网<a href="http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRFgo-Studio" target="_blank" rel="external">点我</a>下载最新的，仔细看界面，有个download不然驱动会有问题，下载完了安装好一定检查是否是最新的。</p>
+<p>大功告成，由于图片太占空间就不放图了，有问题下面询问。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/小车/">小车</a><a href="/tags/蓝牙/">蓝牙</a>
+  <span></span> <a href="/tags/nrf51822/">nrf51822</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/我的作品/">我的作品</a>
+  <a class="article-category-link" href="/categories/nrf51822/">nrf51822</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/10/24/百度语音蓝牙小车/" data-title="百度语音蓝牙小车 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/11/05/nrf51822_keil开发环境设置/" data-title="nrf51822_keil开发环境设置 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -164,19 +141,11 @@ L298N驱动模块、电源和若干杜邦线
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/11/05/nrf51822_keil开发环境设置/" title="nrf51822_keil开发环境设置">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  nrf51822_keil开发环境设置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/10/23/酷Q机器人开发(一)_开发环境搭建/"  title="酷Q机器人开发(一)_开发环境搭建">
+<a href="/2016/10/24/百度语音蓝牙小车/"  title="百度语音蓝牙小车">
  <strong>NEXT:</strong><br/> 
- <span>酷Q机器人开发(一)_开发环境搭建
+ <span>百度语音蓝牙小车
 </span>
 </a>
 </div>
@@ -193,7 +162,7 @@ L298N驱动模块、电源和若干杜邦线
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#所用器件"><span class="toc-number">1.</span> <span class="toc-text">所用器件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能"><span class="toc-number">2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程分析"><span class="toc-number">3.</span> <span class="toc-text">流程分析</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发时需要哪些工具"><span class="toc-number">1.</span> <span class="toc-text">开发时需要哪些工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keil的安装"><span class="toc-number">2.</span> <span class="toc-text">keil的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nrfstudio-go安装"><span class="toc-number">3.</span> <span class="toc-text">nrfstudio go安装</span></a></li></ol>
   </div>
 
 <div id="asidepart">
