@@ -1,0 +1,332 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>校园网路由器配置 | 潇湘雨的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="xiongwei jiao">
+    
+    <meta name="description" content="【原创】从2013年入学后，第一次接触路由器、wifi、ip等概念，当时觉得好高大上这些专有名词。步入主题，学校的校园网是从2014年下半学期开始进行升级的，那时的信息门户还是静态网页的那种，密码都是学号，一般人不改密码，嫌麻烦，可以随便登进去看别人的成绩，感觉特爽，后来学校发现这个问题后就进行了升">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="潇湘雨的博客" title="潇湘雨的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="潇湘雨的博客">潇湘雨的博客</a></h1>
+				<h2 class="blog-motto">潇潇细雨吟情缘</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/projects">我的项目</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+					<form class="search" action="//baidu.com/s" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="wd" autocomplete="off" maxlength="20" placeholder="搜索" />
+                        <input name=tn type=hidden value="bds">
+                        <input name=cl type=hidden value="3">
+                        <input name=ct type=hidden value="2097152">
+						<input type="hidden" name="si" value="yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/27/校园网路由器配置/" title="校园网路由器配置" itemprop="url">校园网路由器配置</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="xiongwei jiao">xiongwei jiao</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-12-27T13:01:56.535Z" itemprop="datePublished">2016-12-27</time>
+    
+  </p>
+</header>
+
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#路由器"><span class="toc-number">1.</span> <span class="toc-text">路由器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一种安装-正常路由器-旧版客户端"><span class="toc-number">2.</span> <span class="toc-text">第一种安装(正常路由器_旧版客户端)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二种安装-正常路由器改交换机-新旧客户端通吃"><span class="toc-number">3.</span> <span class="toc-text">第二种安装(正常路由器改交换机_新旧客户端通吃)</span></a></li></ol>
+		</div>
+		
+		<p>【原创】从2013年入学后，第一次接触路由器、wifi、ip等概念，当时觉得好高大上这些专有名词。步入主题，学校的校园网是从2014年下半学期开始进行升级的，那时的信息门户还是静态网页的那种，密码都是学号，一般人不改密码，嫌麻烦，可以随便登进去看别人的成绩，感觉特爽，后来学校发现这个问题后就进行了升级，校园网也是从哪个时候开始升级的。现在我们来看看新人如何安装路由器来上网。</p>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;这里我用tplink路由器来讲解，其他路由器基本一样。首先，你的有一个路由器，一般两天线的就够用了，然后观察路由器的端口有wan和lan这两种，具体这两口自己去百度，我只讲方法，路由器一般都有一个黑色的按钮reset，用来重启路由器和恢复出厂设置(长按按钮5秒以上)，还有一个标签，上面写路由器的信息，mac地址，生产日期等，我们最主要的是要用路由器ip192.168.x.x。在浏览器里输入就可以管理路由器了。</p>
+<h2 id="第一种安装-正常路由器-旧版客户端"><a href="#第一种安装-正常路由器-旧版客户端" class="headerlink" title="第一种安装(正常路由器_旧版客户端)"></a>第一种安装(正常路由器_旧版客户端)</h2><p>这种方法是一个人登陆账号，多台设备同时使用一个账号<br>不关你是新买的还是旧的路由器，按照下面的方法做。<br>第一步，通电，然后长按路由器reset键5秒以上，恢复出厂设置<br>第二部，打开手机(或电脑)wlan开关(打开wifi)，就可以扫描到路由器的wifi了连接，没有密码，如果有密码，肯定说明你连接不对，或跳到第一步。我们可以看看连接的wifi属性。<br>第三部，打开手机浏览器或电脑浏览器，输入路由器ip(就是路由器后面标签的那个ip地址)进入路由器管理，一般会弹出来个管理员密码，自己设置，设置好就可以进入了，一般有个设置向导，设置好路由器名称和密码</p>
+<h2 id="第二种安装-正常路由器改交换机-新旧客户端通吃"><a href="#第二种安装-正常路由器改交换机-新旧客户端通吃" class="headerlink" title="第二种安装(正常路由器改交换机_新旧客户端通吃)"></a>第二种安装(正常路由器改交换机_新旧客户端通吃)</h2><p>这种方法是由于学校校园网升级造成的，一个人一个号，不可多台设备同时使用一个账号，若出现请不要使用小路由器代理等字就用这个方法或用旧版客户端。<br>不关你是新买的还是旧的路由器，按照下面的方法做。<br>第一步，通电，然后长按路由器reset键5秒以上，恢复出厂设置<br>第二部，打开手机(或电脑)wlan开关(打开wifi)，就可以扫描到路由器的wifi了连接，没有密码，如果有密码，肯定说明你连接不对，或跳到第一步。我们可以看看连接的wifi属性。<br>第三部，打开手机浏览器或电脑浏览器，输入路由器ip(就是路由器后面标签的那个ip地址)进入路由器管理，一般会弹出来个管理员密码，自己设置，设置好就可以进入了，一般有个设置向导，设置好路由器名称和密码<br>第四部，在登陆的界面里功能菜单中找到DHCP设置，然后设置为关闭，然后再找重启路由器设置重启完后断电。然后插上网线到lan口，通电，连接wifi即可。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/校园网/">校园网</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/校园网/">校园网</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/12/27/校园网路由器配置/" data-title="校园网路由器配置 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/09/微信硬件_ble点灯demo(序言)/" title="微信ble硬件端-写在前面的话">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  微信ble硬件端-写在前面的话</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/12/酷Q机器人开发(一)_开发环境搭建/"  title="酷Q机器人开发(一)_开发环境搭建">
+ <strong>NEXT:</strong><br/> 
+ <span>酷Q机器人开发(一)_开发环境搭建
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#路由器"><span class="toc-number">1.</span> <span class="toc-text">路由器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一种安装-正常路由器-旧版客户端"><span class="toc-number">2.</span> <span class="toc-text">第一种安装(正常路由器_旧版客户端)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二种安装-正常路由器改交换机-新旧客户端通吃"><span class="toc-number">3.</span> <span class="toc-text">第二种安装(正常路由器改交换机_新旧客户端通吃)</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://i.muc.edu.cn" target="_blank" title="YangJian">信息门户</a></li>
+      <li><a href="http://wentao1213.com" target="_blank" title="Hexo">随风的博客</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wizicer/iceman" target="_blank" title="Iceman">Iceman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="xiongwei jiao">xiongwei jiao</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"icemantest"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

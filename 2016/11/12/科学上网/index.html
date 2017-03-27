@@ -1,0 +1,460 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Shadowsocks 从零开始一站式翻墙教程 | 潇湘雨的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="xiongwei jiao">
+    
+    <meta name="description" content="文中部分内容摘自各大网站、论坛，主要是为了自己学习和方便查找，也防止部分网站被和谐，找不到资源。现将主要原文链接给大家参考：参考链接
+听着歌慢慢看吧。
+
+Shadowsocks特点：
+省电，在电量查看里几乎看不到它的身影；
+支持开机自启动，且断网无影响，无需手动重连，方便网络不稳定或者3G&amp;amp;">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="潇湘雨的博客" title="潇湘雨的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="潇湘雨的博客">潇湘雨的博客</a></h1>
+				<h2 class="blog-motto">潇潇细雨吟情缘</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/projects">我的项目</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+					<form class="search" action="//baidu.com/s" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="wd" autocomplete="off" maxlength="20" placeholder="搜索" />
+                        <input name=tn type=hidden value="bds">
+                        <input name=cl type=hidden value="3">
+                        <input name=ct type=hidden value="2097152">
+						<input type="hidden" name="si" value="yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/11/12/科学上网/" title="Shadowsocks 从零开始一站式翻墙教程" itemprop="url">Shadowsocks 从零开始一站式翻墙教程</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="xiongwei jiao">xiongwei jiao</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-11-12T06:29:49.312Z" itemprop="datePublished">2016-11-12</time>
+    
+  </p>
+</header>
+
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks特点："><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS推荐与支付"><span class="toc-number">2.</span> <span class="toc-text">VPS推荐与支付:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS深入说明与选择："><span class="toc-number">3.</span> <span class="toc-text">VPS深入说明与选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS节点的选择"><span class="toc-number">4.</span> <span class="toc-text">VPS节点的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS的创建与使用"><span class="toc-number">5.</span> <span class="toc-text">VPS的创建与使用</span></a></li></ol>
+		</div>
+		
+		<p>文中部分内容摘自各大网站、论坛，主要是为了自己学习和方便查找，也防止部分网站被和谐，找不到资源。现将主要原文链接给大家参考：<a href="http://blog.sina.com.cn/s/blog_ea55cba50102vo0o.html" target="_blank" rel="external">参考链接</a></p>
+<p>听着歌慢慢看吧。</p>
+<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="260" height="190" src="http://music.163.com/outchain/player?type=2&id=211258&auto=1&height=66"></iframe></p>
+<h2 id="Shadowsocks特点："><a href="#Shadowsocks特点：" class="headerlink" title="Shadowsocks特点："></a>Shadowsocks特点：</h2><ol>
+<li>省电，在电量查看里几乎看不到它的身影；</li>
+<li>支持开机自启动，且断网无影响，无需手动重连，方便网络不稳定或者3G&amp;Wi-Fi频繁切；</li>
+<li>可使用自己的服务器，安全和速度的保证；</li>
+<li>支持区分国内外流量，传统VPN在翻出墙外后访问国内站点会变慢；</li>
+<li>可对应用设置单独代理，5.0之后的系统无需root。</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>个人感受：</strong>随机启动24小时后台运行，占内存10MB以内，基本不怎么耗电，跟人直接置身墙外使用手机的感受差不多。</p>
+<h2 id="VPS推荐与支付"><a href="#VPS推荐与支付" class="headerlink" title="VPS推荐与支付:"></a>VPS推荐与支付:</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Shadowsocks的正常使用需要服务端，其实所有的翻墙方式都需要服务端，搭建服务端需要你拥有一个属于自己的VPS。下面是我自己精挑细选出来的三家VPS供应商，如果你坚持认为我是在给这三家VPS打广告，你就不用往下看了。这三家我都在用，感觉不错，当然你也可以选择其他家的VPS产品。</p>
+<p>   <strong>DigitalOcean：</strong></p>
+<p>   KVM架构    512MB内存  20GB硬盘   1TB流量/月 5美元/月（折合人民币30元/月）<br>   点击进入 <a href="https://www.digitalocean.com/" target="_blank" rel="external">官网链接</a></p>
+<p>   <strong>搬瓦工（BandwagonHOST）：</strong><br>    OpenVZ架构   1GB内存  20GB硬盘   2TB流量/月 18.99美元/年（折合人民币9.5元/月）此款VPS的年付选项在Billing Cycle的下拉菜单里，点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.chromegae.net/?" target="_blank" rel="external">官网地址</a></p>
+<p>   OpenVZ架构 512MB内存  10GB硬盘   1TB流量/月 11.99美元/年（折合人民币6元/月），点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.chromegae.net/?" target="_blank" rel="external">官网地址</a></p>
+<p>   OpenVZ架构 512MB内存   5GB硬盘 500GB流量/月 9.99美元/年（折合人民币5元/月），点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.chromegae.net/?" target="_blank" rel="external">官网地址</a></p>
+<p>   <strong>Linode：</strong>，点击进入 <a href="https://bandwagonhost.com/" target="_blank" rel="external">官网链接</a>，<strong>提示</strong>进不去的先下载安装chromegae浏览器翻墙进入 <a href="https://www.linode.com/?" target="_blank" rel="external">官网地址</a></p>
+<h2 id="VPS深入说明与选择："><a href="#VPS深入说明与选择：" class="headerlink" title="VPS深入说明与选择："></a>VPS深入说明与选择：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;我简单解释一下三家差价比较大的原因和技术特点：</p>
+<p>OpenVZ为不完全虚拟化技术，每个VPS账户共享母机内核，易受同一母机下其他VPS的影响，几乎不能单独修改内核。Xen和KVM为完全虚拟化技术，各VPS之间互相独立，基本互不影响，而且可以任意修改内核。</p>
+<p>这三种架构对我们搭建shadowsocks服务器来讲最直观的区别就是，Xen和KVM可通过系统内核修改来优化服务器，大幅度提升shadowsocks的连接速度，尤其体现在晚高峰的时候。</p>
+<p>我在同一时间段用100MB的文件简单的在自己的三台VPS上面测试了一下shadowsocks的连接速度：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>搬瓦工</strong>（9.99美元/年）的平均下载速度在1.36-3.43Mbps之间（174-439KB/S），也就是说速度表现不是很稳定，速度快的时候也可以看下YouTube 720p，速度慢的时候YouTube 480p还是没有问题的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;DigitalOcean（5美元/月）的平均下载速度稳定维持在3.70Mbps以上（474KB/S），这个速度已经是我本地物理带宽的上限，所以VPS的速度上限未知，基本在大部分时候YouTube 1080p都可以流畅播放，任意时刻YouTube 720p都没问题。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Linode</strong>（10美元/月）的上传下载速度均达到带宽满载，官方给出的数据是“40 Gbit Network In / 125 Mbit Network Out”，由于楼主本地带宽有限，有热心小伙伴分享了他在联通LTE网络环境下的测试结果，数据显示速度可达60M以上(7.83MB/S)，略恐怖，意味着任意时刻YouTube 1080p秒开，只要你的带宽够，一般来说看4K也是没有问题的。Linode除了速度快之外，还有一个杀手锏就是提供日本节点，ping值70ms以内，有超低网络延迟需求的小伙伴可以重点考虑下。</p>
+<p><strong>个人建议</strong>，对连接速度和稳定性尤其是网络延迟有极高要求的首选Linode（只有最快，没有更快），有较高要求的推荐DigitalOcean（一分价钱一分货），对于普通用户来讲，搬瓦工就可以（性价比高）</p>
+<h2 id="VPS节点的选择"><a href="#VPS节点的选择" class="headerlink" title="VPS节点的选择"></a>VPS节点的选择</h2><p><strong>搬瓦工各节点测试IP：</strong><br>Los Angeles：   104.194.78.3<br>Florida：       74.121.150.3<br>Phoenix：       198.35.46.2（可在控制面板里切换到这个机房）</p>
+<p><strong>DigitalOcean各节点测试域名：</strong><br>San Francisco： speedtest-sfo1.digitalocean.com<br>新加坡：        speedtest-sgp1.digitalocean.com<br>New York：      speedtest-ny1.digitalocean.com<br>Amsterdam：     speedtest-ams1.digitalocean.com<br>英国伦敦：      speedtest-lon1.digitalocean.com</p>
+<p><strong>Linode各节点测试域名：</strong><br>Tokyo,JP：      speedtest.tokyo.linode.com<br>Fremont,CA：    speedtest.fremont.linode.com<br>Newark,NJ：     speedtest.newark.linode.com<br>Atlanta,GA：    speedtest.atlanta.linode.com<br>Dallas,TX：     speedtest.dallas.linode.com<br>London,UK：     speedtest.london.linode.com</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;请在CMD下自行使用“ping IP -t”或“ping 域名 -t”命令来测试不同位置的机房与你的电脑之间的ping值以及丢包率（Ctrl+C退出测试）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果还是不知道该选择哪个节点的小伙伴，搬瓦工一般选用Los Angeles节点居多，DigitalOcean一般选用San Francisco节点居多(都在美国西海岸)，而Linode一般选择“Tokyo,JP”(日本节点)或者“Fremont,CA”(美国西海岸)，由于Linode日本节点ping值很低(70ms左右)、销售火爆，可能会一时无货，如果遇到无货，等一会再试试(我也是刷新了一会就有了)。一开始节点选择的不理想也不要紧，以后还可以方便的切换机房。</p>
+<p>特别对比：Linode的Fremont,CA节点与DigitalOcean的San Francisco节点相比，同在美国西海岸，ping值和丢包率基本差不多，但Linode的网速明显更快。</p>
+<h2 id="VPS的创建与使用"><a href="#VPS的创建与使用" class="headerlink" title="VPS的创建与使用"></a>VPS的创建与使用</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;搬瓦工默认系统为Centos 6 x86，保持默认即可；DigitalOcean创建VPS的时候(Create Droplet)选择CentOS 6.5 x64（自作聪明选择CentOS 7的人是没救的）；Linode的详细操作说明见下方。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;针对搬瓦工的专属补充教程：可能由于搬瓦工官方发现很多人都在他家的VPS上面搭建了Shadowsocks，于是机灵的官方在自家的控制面板里集成了一键搭建服务，大大降低了新手搭建难度，实现了傻瓜化的操作。我简述下流程：点击“Services”里的“My Services”，点击“KiwiVM Control Panel”，这时会跳转到一个新页面。将新页面左侧的滚动条拉到底，找到“Shadowsocks Server”字样并点击进入，然后点击“Install Shadowsocks Server”，几秒钟之后显示Completed的字样就代表完成了。这时候点击“Go back”或者直接点击左侧的“Shadowsocks Server”，你会看到出现了一个叫做“Shadowsocks server controls”的东西，上面有默认的加密方式(encryption)、服务器端口(port)以及密码(password)，你可以直接使用默认的，也可以点击旁边的“Change xx”按钮进行修改，最后检查一下Status是不是Running，不是的话就点一下旁边的“Start”。至此，你的Shadowsocks服务端就搭建完成了，你可以直接跳转到本教程后面的客户端配置部分了(搬瓦工也自带了简易的客户端配置说明“What’s next?”)。注意，此方法为搬瓦工专属，仅供懒人和纯新手，你如果想在更好更快的其他家的VPS上面搭建Shadowsocks服务，你还是需要老老实实的学习下面的手工搭建方法，而且我强烈建议你如果有能力也有精力，最好掌握搭建的原理，对于你以后维护自己的VPS或者再学习搭建其他的翻墙服务都大有脾益。</p>
+<p>DigitalOcean创建VPS过程补充说明：点击网页左上角绿的“Create Droplet”按钮，输入你的“Droplet Hostname”(英文)，然后“Select Size”选择你的付费套餐，“Select Region”选择按照上面的教程测出来的对你最快的节点，“Select Image”选择CentOS 6.5 x64，没提到的选项保持默认即可，最后点击最下方的“Create Droplet”。</p>
+<p>注册完毕后，你已经获得了你VPS的IP，SSH端口，root密码。去下面的地址下载putty，用于在你的windows系统上远程登陆你的VPS。注意：用putty登录VPS时输入的密码是不可见的，正常输入完毕后回车即可：</p>
+<p>下载地址：<a href="http://www.putty.org/" target="_blank" rel="external">putty</a><br><img src="/images/科学上网/1.png" alt="putty config"><br>此操作是在vps上的，Panel”点击“Root password modification”来获得root密码，SSH端口在邮件或者控制面板里可看到，用户名是root，然后直接点解putty open打开输入用户和密码；</p>
+<p>特别警告：搬瓦工的控制面板里有个“OpenVPN Server”选项，可以一键搭建OpenVPN服务端，千万别去使用。否则，到时候你的VPS彻底挂了可别怪我没有提前提醒你(不作死就不会死)，详细原因请自行查看教程后面的进阶答疑部分。</p>
+<p>DigitalOcean则是把密码发到了你邮箱里，而且DigitalOcean在首次登陆VPS的时候系统会提示你修改，你再输入一次原密码后连续输入两次新密码就OK了，DigitalOcean默认SSH端口为22，用户名是root。</p>
+<p>Linode的详细操作说明：Linode账户在绑定信用卡激活后，就可以创建VPS了。值得说明的是，Linode的控制面板较为复杂，当然伴随而来的是功能也更强大。在“Linodes”里选择套餐，左下角选择机房位置，完成后可看到给你分配的IP以及主机名称，点击主机名称比如“linode654321”，然后点击“Deploy a Linux Distribution”，在“Distribution”里面选择“CentOS 6.5”，在“Root Password”的方框里填入你的root密码，然后点击下方的“Deploy”按钮，大概1分钟左右就会创建完毕。点击“Dashboard”下的“Boot”按钮，你的VPS就开始启动了，启动完成后，就可以使用putty来操作你的VPS了，默认SSH端口为22。注意密码不会显示，光标会一直在那，按照正常输入就行。<br><img src="/images/科学上网/2.png" alt="putty config"></p>
+<p>下面的内容需要你有一点点linux的基本知识，用过windows下CMD的小伙伴应该能很快上手，全部命令和内容都可以复制下来通过右键直接粘贴到putty里执行。</p>
+<p>vi编辑器基本用法扫盲（<a href="http://linux.chinaunix.net/doc/office/2005-01-24/898.shtml" target="_blank" rel="external">新手必读</a>）</p>
+<p><a href="http://linux.vbird.org/linux_basic/0310vi.php" target="_blank" rel="external">图文详解</a></p>
+<p>Shadowsocks服务端搭建</p>
+<p>下面的命令，需要一行一行的执行，每输入一行命令，回车执行，如果没有报错，即为执行成功，出现确认提示的时候，输入 y 后，回车即可。每行命令可以复制后在putty里右键粘贴，回车执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum install epel-release</div><div class="line">yum update</div><div class="line">yum install python-setuptools m2crypto supervisor</div><div class="line">easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure></p>
+<p><img src="/images/科学上网/3.png" alt="putty config"><br><img src="/images/科学上网/4.png" alt="putty config"></p>
+<p>继续执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/shadowsocks.json</div></pre></td></tr></table></figure>
+<p>此时按 i 键进入编辑模式，putty黑框的左下角会出现 – INSERT – 字样，然后一次性复制下面的内容（复制之前记得修改8388和yourpassword为你自己的端口号和密码，此端口号不是你的SSH端口号，而是你在手机或电脑上的shadowsocks客户端连接VPS上搭建的服务端的端口号，范围 1 - 65535 ，只要不和现有的端口号如SSH端口冲突都可以，记下你修改的端口号和密码，待会儿在配置手机和电脑的客户端时还要用到），在putty里右键，此时复制的内容应该已经粘贴到了putty里</p>
+<p>———-以下内容为复制内容———-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;server_port&quot;:8388,</div><div class="line">    &quot;local_port&quot;:1080,</div><div class="line">    &quot;password&quot;:&quot;yourpassword&quot;,</div><div class="line">    &quot;timeout&quot;:600,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>———-以上内容为复制内容———-<br><img src="/images/科学上网/5.png" alt="putty config"></p>
+<p>复制完成后，按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。（“ : ”的输入方法为“Shift+字母L右侧的分号键”）</p>
+<p>继续执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/supervisord.conf</div></pre></td></tr></table></figure></p>
+<p>此时你应该能看到很多英文内容，按 i 键再次进入编辑模式，putty黑框的左下角会出现 – INSERT – 字样，用方向键将光标调整至文件尾部的空行处，然后一次性复制下面的内容，在putty里右键，此时复制的内容应该已经粘贴到了putty里</p>
+<p>———-以下内容为复制内容———-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[program:shadowsocks]</div><div class="line">command=ssserver -c /etc/shadowsocks.json</div><div class="line">autostart=true</div><div class="line">autorestart=true</div><div class="line">user=root</div><div class="line">log_stderr=true</div><div class="line">logfile=/var/log/shadowsocks.log</div></pre></td></tr></table></figure></p>
+<p>———-以上内容为复制内容———-<br><img src="/images/科学上网/6.png" alt="putty config"></p>
+<p>复制完成后，按下回车键给文件尾部留出空行，然后按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。</p>
+<p>继续执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/rc.local</div></pre></td></tr></table></figure></p>
+<p>此时你应该能看到几行英文内容，按 i 键再次进入编辑模式，putty黑框的左下角会出现 – INSERT – 字样，用方向键将光标调整至文件中部的空行处，然后一次性复制下面的内容，在putty里右键，此时复制的内容应该已经粘贴到了putty里</p>
+<p>———-以下内容为复制内容———-<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service supervisord start</div></pre></td></tr></table></figure></p>
+<p>———-以上内容为复制内容———-<br><img src="/images/科学上网/7.png" alt="putty config"><br>复制完成后，按 Esc 键退出编辑模式，此时putty黑框左下角的 – INSERT – 字样消失，按下 : 键，输入 wq 后回车，此时文件保存完毕并退出了vi编辑器。</p>
+<p>最后执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reboot</div></pre></td></tr></table></figure></p>
+<p>此时，你的VPS重新启动，服务端已经完全配置完毕，putty会弹出一个连接已断开的提示框，关闭即可(不是报错)。<br><img src="/images/科学上网/8.png" alt="putty config"></p>
+<p>小提醒：搬瓦工的VPS在执行完reboot命令后有时会遇到重启失败的情况，这时候进入控制面板，看一下“Status”是不是“Running”，如果不是的话，点一下“Actions”里的“start”按钮即可。</p>
+<p>别光顾着看教程哦，请不要吝啬你的举手之劳，在帖子底部为本教程+1、转发(公开)，以帮助更多的人。谢谢！﻿</p>
+<p>Shadowsocks客户端配置</p>
+<p>至此，shadowsocks的服务端已经部署完成。剩下的就是下载客户端安装到你的手机和电脑上，记得修改客户端的相关设置保持和你的服务端参数一致哦。</p>
+<p>Android客户端下载链接: <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks" target="_blank" rel="external">点我</a></p>
+<p>推荐在Google Play下载，自动适配你的系统版本，以免出现问题。<br><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks-android/releases</a></p>
+<p>电脑客户端端下载链接（Windows、Mac OS X）<a href="http://sourceforge.net/projects/shadowsocksgui/files/dist/" target="_blank" rel="external">点我</a></p>
+<p>小提醒：Windows 7用户下载Shadowsocks-win-x.x.x.zip，Windows 8用户下载Shadowsocks-win-dotnet4.0-x.x.x.zip。</p>
+<p>iOS客户端端下载链接:<a href="https://itunes.apple.com/cn/app/shadowsocks/id665729974?mt=8" target="_blank" rel="external">点我</a></p>
+<p>Android手机客户端配置示例（以上述服务端配置为例）：<br>注意：已经root手机的小伙伴请勿授予root权限，以免发生未知问题。</p>
+<p>服务器：你的VPS IP地址（非0.0.0.0）<br>远程端口：8388<br>本地端口：1080<br>密码：yourpassword<br>加密方法：AES-256-CFB<br>路由：绕过局域网及中国大陆地址<br>全局代理：勾选<br>UDP转发：建议勾选，如有问题则取消勾选<br>自动连接：勾选</p>
+<p>电脑客户端配置示例（以上述服务端配置为例）：<br>（示例客户端版本：Shadowsocks-win-2.1.6.zip (144.9 kB)，系统Windows 7，如遇无法启动的情况，请右键以管理员身份运行）</p>
+<p>服务器 IP：你的VPS IP地址（非0.0.0.0）<br>服务器端口：8388<br>密码：yourpassword<br>加密：aes-256-cfb<br>代理端口：1080<br>备注：随便写</p>
+<p>右键任务栏飞机小图标，勾选“启用代理”、“开机启动”。</p>
+<p>注：新版的shadowsocks电脑客户端已经支持一键切换系统代理，无需浏览器插件，内置可编辑的PAC服务，并提供HTTP代理，兼容IE。当然，你也可以继续使用Chrome浏览器配合SwitchySharp代理插件使用，SwitchySharp的具体配置如下图所示：</p>
+<p>以上内容在搬瓦工和DigitalOcean以及Linode三家的VPS上已经全部测试通过，无误。</p>
+<p>对于能够成功连接但觉得上网速度慢的小伙伴：</p>
+<p>1.请先确认你自己有没有严格按照教程选择对你最快的节点；<br>2.请将server_port由默认的8388改为其他端口；<br>3.如果速度还是不满意，那么请将你的VPS更换为DigitalOcean或者Linode（你要始终相信一分价钱一分货）。<br>4.南方部分地区电信用户的国际出口遭到电信人为限制，如果当地有“国际精品网”业务，开通后可立即完美解决这个问题。如果不愿意给电信交保护费，建议尝试使用DigitalOcean的新加坡节点或者Linode的日本节点，如果速度还是不满意，换移动和联通吧。</p>
+<p>看到这里已经折腾成功的小伙伴请别忘记在帖子底部为本教程+1、转发(公开)，以帮助更多的人哦。谢谢！﻿</p>
+<p>进阶答疑</p>
+<p>本答疑会根据大家的反馈以及shadowsocks的不断更新而不定期更新，进阶部分针对已经具备一定基础的非新手，这部分内容遇到任何问题请自行Google。</p>
+<p>1.Android 5.0的Shadowsocks为什么耗电量非常高？</p>
+<p>Android 5.0的电量统计模块把所有经过shadowsocks代理的流量所产生的耗电量都算在了shadowsocks上，因此看起来会很耗电，比如你Chrome浏览器的电量都被算到了shadowsocks头上，实际上还是很省电的。</p>
+<p>2.如何查看当前VPS上的Shadowsocks服务端版本号？</p>
+<p>pip show shadowsocks</p>
+<p>3.以后如何升级VPS上的Shadowsocks服务端？</p>
+<p>pip install –upgrade shadowsocks<br>reboot</p>
+<p>4.我搭建过程中不小心出错，想重新来过，如何重装VPS的系统？</p>
+<p>搬瓦工：VPS控制面板里，Install new OS<br>DigitalOcean：VPS控制面板里，Destroy，Rebuild<br>Linode：VPS控制面板里，Rebuild</p>
+<p>5.我开始选择的节点线路不理想，如何切换机房？</p>
+<p>搬瓦工：VPS控制面板里，Migrate to another DC，无需重新搭建Shadowsocks服务端。<br>DigitalOcean：新建一台你想要机房的VPS，删除原来的，需要重新搭建Shadowsocks服务端。<br>Linode：新建一台你想要机房的VPS，删除原来的，需要重新搭建Shadowsocks服务端。</p>
+<p>6.如何配置多账户？</p>
+<p>小提示：Shadowsocks支持一个账户在多个终端同时使用，一般人没有配置多账户的必要。所以如果你看不懂，那你还是别折腾了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</div><div class="line">    &quot;port_password&quot;:&#123;</div><div class="line">        &quot;8388&quot;:&quot;password1&quot;,</div><div class="line">        &quot;8389&quot;:&quot;password2&quot;,</div><div class="line">        &quot;8390&quot;:&quot;password3&quot;,</div><div class="line">        &quot;8391&quot;:&quot;password4&quot;</div><div class="line">    &#125;,</div><div class="line">    &quot;timeout&quot;:300,</div><div class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>友情提醒：GFW目前是根据流量检测分析匹配统计学模型的方式来判断你是否在翻墙，换言之，你用什么方式翻墙并不重要，重要的是你和服务器之间的流量特征是否像是在翻墙。一旦匹配，既对你进行有罪推论，轻则限速，重则彻底封锁IP。在IPv4地址已经枯竭的今天，可用的美国IP地址会越来越少，所以不建议将自己的账号分享多人使用，以防被封。</p>
+<p>7.为什么我的shadowsocks在刚搭建好的时候速度很快用了几天后速度就变慢了甚至网页都很难刷出来？</p>
+<p>出现这种情况有多种可能性：</p>
+<p>①shadowsocks长时间保持不间断连接会被GFW根据流量模型分析判断出你可能在翻墙(原理见上面的友情提醒)，于是进行主动干扰，轻则限速，重则切断你和服务端的连接。解决方法：切换一下你的网络，比如从Wi-Fi切换到3G或者从3G切换到Wi-Fi或者直接断开网络连接，等待10分钟以后，一般即可恢复正常。PS：每天晚上睡觉前关闭手机的网络连接会大大减小此种情况发生的概率；而将自己的VPS分享给多人使用则可能大大增加此种情况发生的概率，请自行斟酌。值得说明的是，VPN最容易受到此类干扰，而shadowsocks作为可自定义端口的私有协议代理已经是最不容易被干扰的翻墙方式之一了。</p>
+<p>②机房的QoS策略。解决方法：将shadowsocks服务端的server_port改为常见端口。</p>
+<p>③本地线路抽风，你所使用宽带运营商的国际出口出现问题。比如最近南方电信部分地区国际出口严重不稳定(电信人为限制)。解决方法：<1>先尝试一下DigitalOcean的新加坡节点或者Linode的日本节点；<2>如果当地有“国际精品网”业务，开通后可立即完美解决这个问题；<3>如果不愿意给电信交保护费，那么就换家运营商吧，移动和联通都没问题。</3></2></1></p>
+<p>④VPS间歇性抽风。无论你选择哪家供应商的VPS，都可能遇到有时候线路抽风、VPS速度慢或者不正常。不同的是，越是价位高的VPS出现抽风情况的可能性越低，越是价位高的VPS出现抽风情况时能保证的最低连接速度越高。出现这种情况的可能性比较低，我手头的无论是搬瓦工还是DigitalOcean以及Linode暂时未遇到线路抽风情况。</p>
+<p>⑤搬瓦工的年付VPS为OpenVZ架构，同一母机下的VPS越多，同一时间段使用的人越多，速度就越慢。解决方法：一分价钱一分货，将VPS更换为DigitalOcean或者Linode。</p>
+<p>⑥中国的国际出口带宽有限，晚高峰时段可能出现网络拥堵，速度多少会受影响，但这种情况起码白天的速度应该是没问题的。</p>
+<p>⑦如果你在VPS上搭建了VPN并且经常使用，尤其是OpenVPN，请立即停止使用。VPN协议特征明显，GFW可以非常容易的检测到，从而盯上你的IP，轻则限速，重则彻底屏蔽。常见VPN协议根据易受干扰的程度从大到小依次为：OpenVPN &gt; PPTP &gt; L2TP &gt; IPSec，尤其是OpenVPN，GFW已经可以实现对其定点清除(同样遭此待遇的还有SSH翻墙)。如果你想让自己VPS的IP快速报废，那么就请尽情的使用搬瓦工的控制面板搭建OpenVPN吧。重要提醒：在不明所以的情况下尽量不要在自己的VPS上搭建其他杂七乱八的翻墙服务尤其是一些早已过时和落后的翻墙方式，翻墙手段宜新不宜旧，只搭一个Shadowsocks是最能保证你翻墙效果和服务器稳定的好策略。</p>
+<p>⑧其他：偶尔的速度慢或者连不上都是正常的，但如果经常性的速度奇慢或者连不上那就不正常了。</p>
+<p>8.为什么是CentOS？</p>
+<p>作为服务器而言，永远都是稳定性压倒一切。而CentOS简单易用，上手快速，业界公认的稳定，且易于维护，是服务器操作系统首选。</p>
+<p>9.为什么是Python版？</p>
+<p>Python版的Shadowsocks易部署，后期升级维护都非常方便，相当适合新手，支持的特性也最多，稳定性好，运行效率高。</p>
+<p>10.为什么使用supervisord？</p>
+<p>与繁琐的带参执行方式相比，service命令在CentOS系统里使用起来更加灵活方便，比如：</p>
+<p>①启动Shadowsocks服务端：service supervisord start<br>②关闭Shadowsocks服务端：service supervisord stop<br>③重启shadowsocks服务端：service supervisord restart</p>
+<p>错误排查</p>
+<p>已经成功的小伙伴可以直接略过这部分了。</p>
+<p>温馨提醒：在怀疑教程的任何一个地方之前，请先怀疑你自己。</p>
+<p>服务端搭建成功的唯一衡量标准是在手机或者电脑客户端正确配置后能否顺利的访问被屏蔽的网站，无论是电脑还是手机，只要有一个终端能够成功翻墙即视为服务端搭建成功，出现所谓的可以连接但无法上网其实还是服务端或者客户端的配置有问题，认真按照下面的步骤一步步排错吧。</p>
+<p>遇到问题的小伙伴请先认真仔细阅读这两篇文章<br><a href="http://linux.chinaunix.net/doc/office/2005-01-24/898.shtml" target="_blank" rel="external">http://linux.chinaunix.net/doc/office/2005-01-24/898.shtml</a><br><a href="http://linux.vbird.org/linux_basic/0310vi.php" target="_blank" rel="external">http://linux.vbird.org/linux_basic/0310vi.php</a><br>上面的链接为vi编辑器基本用法扫盲（新手必读）</p>
+<p>最容易出现问题的地方，就是vi编辑器的使用，如果你在执行vi命令后没有按 i 键进入编辑模式就直接复制粘贴，会造成粘贴内容的首行被覆盖，从而导致错误；或者你在粘贴内容后，没有以正确的方式保存退出，同样会出现问题。</p>
+<p>如果你在执行完reboot命令后，手机端无法连接，请先确保你的手机端配置正确，并且网络环境良好(参照上面的Android手机客户端配置示例)。然后用putty登入你的VPS后通过以下方式逐步排查：</p>
+<p>1.执行命令service supervisord start，执行完毕后如果没有报错，手机端也可以正常连接，那么问题出在vi /etc/rc.local这个环节，请重新检查该文件配置；如果手机端依然无法连接，请继续往下看。</p>
+<p>2.执行命令ssserver -c /etc/shadowsocks.json，执行完毕后如果没有报错，手机端也可以正常连接，那么问题出在vi /etc/supervisord.conf这个环节，请重新检查该文件配置；如果手机端依然无法连接，请继续往下看。</p>
+<p>3.如果依次进行完以上两步后，手机端依然无法连接，那么问题出在vi /etc/shadowsocks.json环节，请重新检查该文件配置。</p>
+<p>4.如果以上三个文件的配置问题都解决后，执行reboot命令后，手机端依然无法连接，那么说明你在教程最开始的5行命令没有正确执行，在搬瓦工和DigitalOcean以及Linode官网的控制面板里重装VPS系统后，按照教程认认真真仔仔细细的重新来过吧。</p>
+<p>尾巴</p>
+<p>整个教程到这里就结束了，我按照自己写的内容重新搭建了一遍没有遇到问题，大家有什么问题可以在帖子下面提问，在提问之前请先确保你是严格按照教程一步步认真往下执行了的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/VPN/">VPN</a><a href="/tags/Shadowsocks/">Shadowsocks</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/科学上网/">科学上网</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2016/11/12/科学上网/" data-title="Shadowsocks 从零开始一站式翻墙教程 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/11/12/酷Q机器人开发(一)_开发环境搭建/" title="酷Q机器人开发(一)_开发环境搭建">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  酷Q机器人开发(一)_开发环境搭建</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/11/12/百度语音蓝牙小车/"  title="百度语音蓝牙小车">
+ <strong>NEXT:</strong><br/> 
+ <span>百度语音蓝牙小车
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Shadowsocks特点："><span class="toc-number">1.</span> <span class="toc-text">Shadowsocks特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS推荐与支付"><span class="toc-number">2.</span> <span class="toc-text">VPS推荐与支付:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS深入说明与选择："><span class="toc-number">3.</span> <span class="toc-text">VPS深入说明与选择：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS节点的选择"><span class="toc-number">4.</span> <span class="toc-text">VPS节点的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS的创建与使用"><span class="toc-number">5.</span> <span class="toc-text">VPS的创建与使用</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://i.muc.edu.cn" target="_blank" title="YangJian">信息门户</a></li>
+      <li><a href="http://wentao1213.com" target="_blank" title="Hexo">随风的博客</a></li>
+    </ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wizicer/iceman" target="_blank" title="Iceman">Iceman</a> © 2017 
+		
+		<a href="http://yoursite.com" target="_blank" title="xiongwei jiao">xiongwei jiao</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"icemantest"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
