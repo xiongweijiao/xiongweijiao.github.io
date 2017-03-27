@@ -4,13 +4,10 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>微信ble硬件端(二) | 潇湘雨的博客</title>
+    <title>潇湘雨的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xiongwei jiao">
-    
-    <meta name="description" content="【原创】这节将开始服务器的程序下载和调试。这里有个PDF介绍的不错，点击我下载，我就把遇到的问题和大家一起分享
-安装eclipse和jdk   我们安装的eclipse ee,不是其他的.注意，请安装最新版的，最新版的支持jdk1.8,现在我们一般下载到的是1.8就没必要安装1.7，确保java环境">
     
     
     
@@ -78,14 +75,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/26/微信硬件_ble点灯(二)/" title="微信ble硬件端(二)" itemprop="url">微信ble硬件端(二)</a>
+      <a href="/2017/03/27/小马哥四轴学习(一) /" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xiongwei jiao">xiongwei jiao</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-26T02:35:38.817Z" itemprop="datePublished">2017-03-26</time>
+    <time datetime="2017-03-27T06:48:26.678Z" itemprop="datePublished">2017-03-27</time>
     
   </p>
 </header>
@@ -95,36 +92,19 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装eclipse和jdk"><span class="toc-number">1.</span> <span class="toc-text">安装eclipse和jdk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查配置"><span class="toc-number">2.</span> <span class="toc-text">检查配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器数据"><span class="toc-number">3.</span> <span class="toc-text">服务器数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器问题"><span class="toc-number">4.</span> <span class="toc-text">服务器问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接设备问题"><span class="toc-number">5.</span> <span class="toc-text">连接设备问题</span></a></li></ol>
+		
 		</div>
 		
-		<p>【原创】这节将开始服务器的程序下载和调试。这里有个PDF介绍的不错，<a href="\files\微信硬件Ble\二\微信蓝牙接入demo教程-NRF51822.pdf">点击我下载</a>，我就把遇到的问题和大家一起分享</p>
-<h2 id="安装eclipse和jdk"><a href="#安装eclipse和jdk" class="headerlink" title="安装eclipse和jdk"></a>安装eclipse和jdk</h2><p>   我们安装的eclipse ee,不是其他的.注意，请安装最新版的，最新版的支持jdk1.8,现在我们一般下载到的是1.8就没必要安装1.7，确保java环境配置正确。</p>
-<h2 id="检查配置"><a href="#检查配置" class="headerlink" title="检查配置"></a>检查配置</h2><p> <img src="\images\微信硬件Ble\二\1.png" alt="nrf_download">不然ant时会出错</p>
-<h2 id="服务器数据"><a href="#服务器数据" class="headerlink" title="服务器数据"></a>服务器数据</h2><p> 自己照那个PDF文档,把生成的war部署到服务器，记得缴费，不然那个微信接入的回调网址不能用网址，然后就是按照教程一步步完成就ok了。</p>
-<h2 id="服务器问题"><a href="#服务器问题" class="headerlink" title="服务器问题"></a>服务器问题</h2><p> 按照那个文档教程，一般没啥问题，但是我遇到的问题是一直提示未绑定，查了一些资料，有的说是测试的公众号不稳定。但我想不可能吧，微信这么大公司，服务器会不稳定？，我突然想到说不定是在哪又跟新了一些参数，文档里没有提到。<br> 果然发现，微信客户端(Android)最新的在绑定时是以json格式发送数据，在发送控制命令时又是以xml格式发送。我的个郁闷。。我想可能是我客户端太新了吧，哈哈，找到问题改怎么解决了，先来看看我是如何找到这个问题的，那就是把微信转给新浪的数据<br> 打印出来，在新浪sae日志中心里查看，原来微信端绑定却没有往服务器里添加数据。json和xml数据怎样转换呢？。。作为测试想了一个方法就是硬绑定，先把数据填到服务器里不就可以了吗<br> <img src="\images\微信硬件Ble\二\2.png" alt="nrf_download"><br> 结果<br>  <img src="\images\微信硬件Ble\二\3.png" alt="nrf_download"></p>
-<h2 id="连接设备问题"><a href="#连接设备问题" class="headerlink" title="连接设备问题"></a>连接设备问题</h2><p> 1.连接不了设备先检查自己蓝牙开了吗，微信不会自动提示<br> 2.一个微信号先绑定了一个设备，然后把这个在微信调试的时候设备id删了，又重新申请一个设备id号。还记得在注册设备时提交了一个mac地址吗，你一个mac对应两个id且是同一个用户，能不出错吗。所以在debug时解除绑定即可每次更新一个设备的id时最快捷的unbind方法是打开微信-&gt;设置-&gt;设备删除就ok了。</p>
-<p> 还有nrf5122里用的协议栈是5.2.1不要下载错了。这里的地址也不要写错，不然下载程序会又问题<br>  <img src="\images\微信硬件Ble\二\4.png" alt="nrf_download"><br> 关于微信端绑定时如何把数据同步到服务器，待续。有问题下面留言哦</p>
-  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/BLE/">BLE</a>
-  </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/微信硬件/">微信硬件</a>
-</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2017/03/26/微信硬件_ble点灯(二)/" data-title="微信ble硬件端(二) | 潇湘雨的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2017/03/27/小马哥四轴学习(一) /" data-title="潇湘雨的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -134,18 +114,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/27/小马哥四轴学习(序言)/" title="�ҵ�С����">
+ <a href="/2017/03/27/android_bmob短信验证码/" title="">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  �ҵ�С����</span>
+  (no title)</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/12/微信硬件_ble点灯(一)/"  title="微信ble硬件端(一)">
+<a href="/2017/03/27/小马哥四轴学习(序言)/"  title="�ҵ�С����">
  <strong>NEXT:</strong><br/> 
- <span>微信ble硬件端(一)
+ <span>�ҵ�С����
 </span>
 </a>
 </div>
@@ -162,7 +142,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装eclipse和jdk"><span class="toc-number">1.</span> <span class="toc-text">安装eclipse和jdk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查配置"><span class="toc-number">2.</span> <span class="toc-text">检查配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器数据"><span class="toc-number">3.</span> <span class="toc-text">服务器数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器问题"><span class="toc-number">4.</span> <span class="toc-text">服务器问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接设备问题"><span class="toc-number">5.</span> <span class="toc-text">连接设备问题</span></a></li></ol>
+  
   </div>
 
 <div id="asidepart">
