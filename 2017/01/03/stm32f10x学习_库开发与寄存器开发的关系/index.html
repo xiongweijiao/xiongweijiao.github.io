@@ -4,17 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>nrf51822_keil开发环境设置 | 潇湘雨的博客</title>
+    <title>STM32 固件库与 CMSIS 标准 | 潇湘雨的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="xiongwei jiao">
     
-    <meta name="description" content="【原创】在对nrf51822芯片开发前，我们必须要对开发工具进行环境设置，且一定要熟悉各个软件的功能是啥，不然出了问题无从下手。
-开发时需要哪些工具
-keil mdk-arm系列（我们编写代码的软件）
-nrfstudio go（下载协议栈和hex文件的软件）
-
-keil的安装不管是哪个软件，一律推荐">
+    <meta name="description" content="基础概念乃学习任何事物的重中之重，理解透彻才能向更高级出发，否则，在学到中级时，便顿感困难，常常放弃。
+stm32命名规则固件库(firmware lib)固件：百度解释为相对于软件而言，存在于硬件的指令。则固件库就是对硬件操作的一系列指令的集合体也就是函数，为了实现某一功能，一般都需要好多条指令对">
     
     
     
@@ -82,14 +78,14 @@ keil的安装不管是哪个软件，一律推荐">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/11/12/nrf51822_keil开发环境设置/" title="nrf51822_keil开发环境设置" itemprop="url">nrf51822_keil开发环境设置</a>
+      <a href="/2017/01/03/stm32f10x学习_库开发与寄存器开发的关系/" title="STM32 固件库与 CMSIS 标准" itemprop="url">STM32 固件库与 CMSIS 标准</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="xiongwei jiao">xiongwei jiao</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-11-12T06:29:49.249Z" itemprop="datePublished">2016-11-12</time>
+    <time datetime="2017-01-03T02:28:45.671Z" itemprop="datePublished">2017-01-03</time>
     
   </p>
 </header>
@@ -99,40 +95,32 @@ keil的安装不管是哪个软件，一律推荐">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发时需要哪些工具"><span class="toc-number">1.</span> <span class="toc-text">开发时需要哪些工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keil的安装"><span class="toc-number">2.</span> <span class="toc-text">keil的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nrfstudio-go安装"><span class="toc-number">3.</span> <span class="toc-text">nrfstudio go安装</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#stm32命名规则"><span class="toc-number">1.</span> <span class="toc-text">stm32命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#固件库-firmware-lib"><span class="toc-number">2.</span> <span class="toc-text">固件库(firmware lib)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMSIS-Cortex-Microcontroller-Software-Interface-Standard"><span class="toc-number">3.</span> <span class="toc-text">CMSIS(Cortex Microcontroller Software Interface Standard)</span></a></li></ol>
 		</div>
 		
-		<script src="/assets/js/DPlayer.min.js"> </script><p>【原创】在对nrf51822芯片开发前，我们必须要对开发工具进行环境设置，且一定要熟悉各个软件的功能是啥，不然出了问题无从下手。</p>
-<h2 id="开发时需要哪些工具"><a href="#开发时需要哪些工具" class="headerlink" title="开发时需要哪些工具"></a>开发时需要哪些工具</h2><ul>
-<li>keil mdk-arm系列（我们编写代码的软件）</li>
-<li>nrfstudio go（下载协议栈和hex文件的软件）</li>
-</ul>
-<h2 id="keil的安装"><a href="#keil的安装" class="headerlink" title="keil的安装"></a>keil的安装</h2><p>不管是哪个软件，一律推荐从官网下载，因为官网是最新的，没有二次开发，无毒，功能全。百度keil官网或者点我<a href="https://www.keil.com/demo/ev" target="_blank" rel="external">keil官网下载mdk-arm</a> 一定注意是arm不是c51，进行简单的信息填写后，有个Which ARM architectures are you using?我们选择Cortex-M0，然后提交就可以下载了，下载完了，和普通软件一样，安装就行了。</p>
-<p>下来就是破解，百度keil5注册机或<a href="http://bbs.armfly.com/read.php?tid=2346" target="_blank" rel="external">点我下载</a>，进行破解，破解时注意选择的是arm系列。不破解可能编译软件会出问题。有能力的推荐去购买。</p>
-<p>下来就是安装nrf51系列的sdk了，百度nrf51sdk或<a href="http://developer.nordicsemi.com/nRF5_SDK/" target="_blank" rel="external">点我下载</a>，我们选择下载nrf5-sdk–v10.把sdk和pack都下载下来。<br><img src="/images/nrf51822环境设置/1.png" alt="pic"><br>把sdk<em>.zip解压，安装sdk</em>.msi。<br>把sdk-<strong>-device-pack.zip解压到keil安装目录Keil_v5\ARM\PACK下，打开解压文件夹有个install.bat双击，根据相应提示输入。<br>这里就keil的安装完成了，打开解压的sdk<em>*</em></strong>.zip文件，里面有example，自己可以运行一下。</p>
-<p><strong>提示若出现这种情况，就安装sdk*.msi，就是刚才下载的sdk解压的那里</strong><br><img src="/images/nrf51822环境设置/2.png" alt="pic"><br>若提示softdevicepack no found就把pack安上<br>这里建议把sdk和devicepack,都安装上，安了sdk的运行官方的案例就没问题，安了devicepack的运行二次开发的程序如聚码的就没问题了。两者具体啥区别，不知道，反正安了没错</p>
-<h2 id="nrfstudio-go安装"><a href="#nrfstudio-go安装" class="headerlink" title="nrfstudio go安装"></a>nrfstudio go安装</h2><p>前面已经说过了是下载协议栈的，因为keil无法下载协议栈。<br>百度nrfsudio go,下载软件或者去官网<a href="http://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRFgo-Studio" target="_blank" rel="external">点我</a>下载最新的，仔细看界面，有个download不然驱动会有问题，下载完了安装好一定检查是否是最新的。</p>
-<p>大功告成，由于图片太占空间就不放图了，有问题下面询问。</p>
+		<script src="/assets/js/DPlayer.min.js"> </script><p>基础概念乃学习任何事物的重中之重，理解透彻才能向更高级出发，否则，在学到中级时，便顿感困难，常常放弃。</p>
+<h2 id="stm32命名规则"><a href="#stm32命名规则" class="headerlink" title="stm32命名规则"></a>stm32命名规则</h2><h2 id="固件库-firmware-lib"><a href="#固件库-firmware-lib" class="headerlink" title="固件库(firmware lib)"></a>固件库(firmware lib)</h2><p>固件：百度解释为相对于软件而言，存在于硬件的指令。<br>则固件库就是对硬件操作的一系列指令的集合体也就是函数，为了实现某一功能，一般都需要好多条指令对寄存器操作，对于初学者看寄存器十分不便，则有人把好多条指令进行封装成函数来实现某一功能</p>
+<h2 id="CMSIS-Cortex-Microcontroller-Software-Interface-Standard"><a href="#CMSIS-Cortex-Microcontroller-Software-Interface-Standard" class="headerlink" title="CMSIS(Cortex Microcontroller Software Interface Standard)"></a>CMSIS(Cortex Microcontroller Software Interface Standard)</h2><p>我们以contex3为例来说，首先我们要理解contex和arm的关系，arm是一个公司，专门做芯片内核的。出了好多内核，于是就以公司的名字进行命名。contex3和arm7有啥关系了？由于arm7不能胜任一些工作，但由于arm7的一些优势，有些人就进行对arm7架构的升级，结果升级后的性价比非常好，所以就非常好，升级有好几个版本，所以就出现contex0，contex3等。<br>再怎么改但内核还是arm的，其他厂商只是根据需求对一些外设进行增添。arm为了让各个厂商在软件设计上兼容，就和厂商商量制定了cmsis标准。<br>CMSIS 分为 3 个基本功能层：<br>1) 核内外设访问层： ARM 公司提供的访问，定义处理器内部寄存器地址以及功能函数。<br>2) 中间件访问层:定义访问中间件的通用 API,也是 ARM 公司提供。<br>3) 外设访问层：定义硬件寄存器的地址以及外设的访问函数。<br>一个简单的例子，我们在使用 STM32 芯片的时候首先要进<br>行系统初始化， CMSIS 规范就规定，系统初始化函数名字必须为 SystemInit，所以各个芯片公<br>司写自己的库函数的时候就必须用 SystemInit 对系统进行初始化。 CMSIS 还对各个外设驱<br>动文件的文件名字规范化，以及函数名字规范化等等一系列规定。上一节讲的函数<br>GPIO_ResetBits 这个函数名字也是不能随便定义的，是要遵循 CMSIS 规范的。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/nrf51822/">nrf51822</a>
+  <span></span> <a href="/tags/stm32/">stm32</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/nrf51822/">nrf51822</a>
+  <a class="article-category-link" href="/categories/嵌入式/">嵌入式</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/11/12/nrf51822_keil开发环境设置/" data-title="nrf51822_keil开发环境设置 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2017/01/03/stm32f10x学习_库开发与寄存器开发的关系/" data-title="STM32 固件库与 CMSIS 标准 | 潇湘雨的博客" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -142,18 +130,18 @@ keil的安装不管是哪个软件，一律推荐">
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/11/12/百度语音蓝牙小车/" title="百度语音蓝牙小车">
+ <a href="/2017/03/09/微信硬件_ble点灯demo(序言)/" title="微信ble硬件端-写在前面的话">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  百度语音蓝牙小车</span>
+  微信ble硬件端-写在前面的话</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/11/12/hello-world/"  title="Hello World">
+<a href="/2016/12/27/校园网路由器配置/"  title="校园网路由器配置">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>校园网路由器配置
 </span>
 </a>
 </div>
@@ -170,7 +158,7 @@ keil的安装不管是哪个软件，一律推荐">
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发时需要哪些工具"><span class="toc-number">1.</span> <span class="toc-text">开发时需要哪些工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keil的安装"><span class="toc-number">2.</span> <span class="toc-text">keil的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nrfstudio-go安装"><span class="toc-number">3.</span> <span class="toc-text">nrfstudio go安装</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#stm32命名规则"><span class="toc-number">1.</span> <span class="toc-text">stm32命名规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#固件库-firmware-lib"><span class="toc-number">2.</span> <span class="toc-text">固件库(firmware lib)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CMSIS-Cortex-Microcontroller-Software-Interface-Standard"><span class="toc-number">3.</span> <span class="toc-text">CMSIS(Cortex Microcontroller Software Interface Standard)</span></a></li></ol>
   </div>
 
 <div id="asidepart">
